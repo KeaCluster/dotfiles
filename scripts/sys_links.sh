@@ -20,7 +20,7 @@ create_link() {
 create_link "$DOTFILES_DIR/bash/.profile" "$TARGET_DIR/.profile"
 create_link "$DOTFILES_DIR/bash/.bashrc" "$TARGET_DIR/.bashrc"
 create_link "$DOTFILES_DIR/git/.gitconfig" "$TARGET_DIR/.gitconfig"
-create_link "$DOTFILES_DIR/nvim" "$TARGET_DIR/.config/nvim"  # Ensure this path is correct
+# create_link "$DOTFILES_DIR/nvim" "$TARGET_DIR/.config/nvim"
 create_link "$DOTFILES_DIR/zsh/.zshrc" "$TARGET_DIR/.zshrc"
 
 # Finished message
