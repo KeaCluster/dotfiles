@@ -35,7 +35,7 @@ create_link "$DOTFILES_DIR/git/.gitconfig" "$TARGET_DIR/.gitconfig"
 create_link "$DOTFILES_DIR/zsh/.zshrc" "$TARGET_DIR/.zshrc"
 
 # Install minimal theme for Zsh
-./minimal_theme_setup.sh
+sh ./minimal_theme_setup.sh
 
 # Verify c++ tools
 echo "g++ location"
