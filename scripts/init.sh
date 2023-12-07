@@ -7,6 +7,9 @@ sudo apt upgrade
 # Installs zsh, basic npm and openssh tools alongside c++ tools: build-essential && gdb
 sudo apt install -y zsh npm neofetch openssh-client curl build-essential gdb
 
+# Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 # Install Oh-My-Zsh if not already installed
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
