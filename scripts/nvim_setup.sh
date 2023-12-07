@@ -32,5 +32,20 @@ echo "Installation cleanup complete."
 
 echo "Neovim installation complete. Type 'nvim' to start."
 
-
 # Note: The latest stable inside apt is a non-compatible Ver with LazyVim
+
+# Define Neovim configuration paths
+DOTFILES_NVIM_DIR="$HOME/.dotfiles/nvim"
+NVIM_CONFIG_DIR="$HOME/.config/nvim"
+
+# Backup existing Neovim config if it exists
+if [ -d "$NVIM_CONFIG_DIR" ]; then
+    echo "Backing up existing Neovim config..."
+    mv "$NVIM_CONFIG_DIR" "${NVIM_CONFIG_DIR}_backup_$(date +%Y%m%d%H%M%S)"
+fi
+
+# Create symbolic link for our LazyVim configuration
+echo "Setting up LazyVim configuration..."
+ln -s "$DOTFILES_NVIM_DIR" "$NVIM_CONFIG_DIR"
+
+echo "LazyVim setup complete."
