@@ -1,5 +1,9 @@
-[user]
-	name = KeaCluster
-	email = zzabdiel29@gmail.com
 [init]
 	defaultBranch = main
+[alias]
+	st = status
+	co = checkout
+	br = branch
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore_global
