@@ -4,7 +4,7 @@
 # For use when installation isn't run with init.sh file
 
 # Define source and target
-DOTFILES_DIR="$HOME/dotfiles"
+DOTFILES_DIR="$HOME/.dotfiles"
 TARGET_DIR="$HOME"
 
 # Function to create a symbolic link with backup
