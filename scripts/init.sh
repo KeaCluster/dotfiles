@@ -32,6 +32,9 @@ create_link "$DOTFILES_DIR/git/.gitconfig" "$TARGET_DIR/.gitconfig"
 create_link "$DOTFILES_DIR/nvim" "$TARGET_DIR/.config/nvim"  # Ensure this path is correct
 create_link "$DOTFILES_DIR/zsh/.zshrc" "$TARGET_DIR/.zshrc"
 
+# Install minimal theme for Zsh
+./minimal_theme_setup.sh
+
 # Verify c++ tools
 echo "g++ location"
 whereis g++
