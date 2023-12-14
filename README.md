@@ -5,7 +5,7 @@
 - QA non-compliant
 - Not recommended
 - Mere experiment
-- vim, git, zsh, node, lazyvim, ssh, c++
+- nvim, git, zsh, node, ssh, c++ tools, etc
 
 ## For
 
