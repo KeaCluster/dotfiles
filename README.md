@@ -17,31 +17,49 @@ Minimal Debian setup (No GUI)
 $ git clone https://github.com/KeaCluster/dotfiles.git ~/.dotfiles
 ```
 
-Then
+You can add execution permition to these scripts with:
+
+```sh
+$ chmod u+x ~/.dotfiles/scripts/init.sh
+```
+
+Then `cd` into `scripts` or do it from any directory
+
+```sh
+$ cd ~/.dotfiles/scripts/
+```
+
+or just run the files.
+
 ```sh
 $ ~/.dotfiles/scripts/init.sh
 ```
 
 This will install basic programs as well as add some syslinks
 
-If you already have some distros, you can just update system links to match this repo's files with:
+If you already have some config, you can just update system links to match this repo's files with:
 
 ```sh
-$ sh ~/.dotfiles/scripts/sys_links.sh
+$ sys_links.sh
 ```
 
-Verify your installation with the script's instructions.
+- NOTE:
+
+This won't make backups of your previous config.
+
+
+- Verify your installation with the script's instructions.
 
 ### Nvim config is separate due to version constraints.
 
 ```sh
-$ sh ~/.dotfiles/scripts/nvim_setup.sh
+$ nvim_setup.sh
 ```
 
 ### Minimal theme
 
-With the use of Zsh and OhMyZsh it's optional to install this theme I'm a big fan of.
+With the use of Zsh and OhMyZsh its optional to install this theme (I like it)
 
 ```sh
-$ sh ~/.dotfiles/scripts/minimal_theme_setup.sh
+$ minimal_theme_setup.sh
 ```
