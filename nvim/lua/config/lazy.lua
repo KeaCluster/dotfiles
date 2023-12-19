@@ -27,8 +27,9 @@ require("lazy").setup({
         version = false, -- always use the latest git commit
         -- version = "*", -- try installing the latest stable version for plugins that support semver
     },
-    install = { colorscheme = { "tokyonight", "kanagawa", "habamax" } },
+    install = { colorscheme = { "kanagawa", "tokyonight", "habamax" } },
     checker = { enabled = true }, -- automatically check for plugin updates
+    -- kanagawa enabled
     performance = {
         rtp = {
             -- disable some rtp plugins
@@ -45,3 +46,7 @@ require("lazy").setup({
         },
     },
 })
+
+-- added colorscheme as default
+
+vim.cmd.colorscheme("kanagawa")
