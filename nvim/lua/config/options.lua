@@ -7,7 +7,6 @@ set.expandtab = true
 set.smartindent = true
 
 set.completeopt = "menu,menuone,noselect,noinsert"
-set.undodir = os.getenv("HOME") .. "/.vim/undodir"
 set.undofile = true
 set.signcolumn = "yes"
 
