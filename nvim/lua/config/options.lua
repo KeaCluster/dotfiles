@@ -1,12 +1,12 @@
 local set = vim.opt
 
-set.tabstop = 4
+set.tabstop = 2
 set.softtabstop = 4
 set.shiftwidth = 4
 set.expandtab = true
 set.smartindent = true
 
-set.completeopt = "menu,menuone,noselect,noinsert"
+-- set.completeopt = "menu,menuone,noselect,noinsert"
 set.undofile = true
 set.signcolumn = "yes"
 
