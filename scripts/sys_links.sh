@@ -9,11 +9,11 @@ TARGET_DIR="$HOME"
 
 # Function to create a symbolic link with backup
 create_link() {
-    if [ -f "$2" ] || [ -d "$2" ]; then
-        mv "$2" "$2.backup"
-        echo "Existing file/directory $2 moved to $2.backup"
-    fi
-    ln -s "$1" "$2"
+	if [ -f "$2" ] || [ -d "$2" ]; then
+		mv "$2" "$2.backup"
+		echo "Existing file/directory $2 moved to $2.backup"
+	fi
+	ln -s "$1" "$2"
 }
 
 # create symbolic links
