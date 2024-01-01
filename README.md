@@ -7,6 +7,7 @@
 - [How](#how)
   - [Nvim config is separate due to version constraints](#nvim-config-is-separate-due-to-version-constraints)
   - [Minimal theme](#minimal-theme)
+- [Screenshots](#screenshots)
 
 <!-- tocstop -->
 
@@ -72,3 +73,9 @@ With the use of Zsh and OhMyZsh its optional to install this theme (I like it)
 ```sh
 minimal_theme_setup.sh
 ```
+
+## Screenshots
+
+![terminal](./images/terminal.png)
+![dashboard](./images/dashboard.png)
+![example](./images/lua-code-ex.png)
