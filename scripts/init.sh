@@ -6,7 +6,11 @@
 sudo pacman -Syu
 
 # Installs essential packages
-REQUIRED_PKGS="zsh nodejs npm openssh curl base-devel gdb python python-pip luarocks fd ripgrep make cargo neofetch"
+# Debian
+# REQUIRED_PKGS="zsh nodejs npm openssh-client curl base-devel gdb python3.11-venv pip luarocks fd ripgrep make cargo neofetch"
+# Arch
+
+REQUIRED_PKGS="zsh nodejs npm openssh curl base-devel gdb python python-pip luarocks lazygit fd ripgrep make cargo neofetch"
 
 # Uncomment this for Debian/Ubuntu style distros
 # sudo apt install -y $REQUIRED_PKGS
