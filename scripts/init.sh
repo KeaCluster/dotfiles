@@ -11,7 +11,7 @@ REQUIRED_PKGS="zsh nodejs npm openssh-client curl build-essential gdb python3.11
 # Uncomment this for Debian/Ubuntu style distros
 # sudo apt install -y $REQUIRED_PKGS
 
-sudo pacman -S --needed $REQUIRED_PKGS
+sudo pacman -Sy --needed $REQUIRED_PKGS
 
 # Define Source and Target Path for symbolic links
 DOTFILES_DIR="$HOME/.dotfiles"
