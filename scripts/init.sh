@@ -4,7 +4,7 @@
 sudo apt update && sudo apt upgrade -y
 
 # Installs essential packages
-REQUIRED_PKGS="zsh nodejs npm openssh-client curl build-essential gdb neofetch python3.11-venv pip luarocks fd ripgrep make cargo"
+REQUIRED_PKGS="zsh nodejs npm openssh-client curl build-essential gdb python3.11-venv pip luarocks fd ripgrep make cargo neofetch"
 sudo apt install -y $REQUIRED_PKGS
 
 # Define Source and Target Path for symbolic links
