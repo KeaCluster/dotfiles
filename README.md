@@ -16,11 +16,11 @@
 - QA non-compliant
 - Not recommended
 - Mere experiment
-- nvim, git, zsh, node, ssh, c++ tools, brew, etc...
+- nvim, git, zsh, node, ssh client, c++ tools, brew, etc...
 
 ## For
 
-Minimal Debian setup (No GUI config)
+Minimal Debian (or) Arch setup (No GUI config)
 
 ## How
 
