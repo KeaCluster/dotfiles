@@ -6,12 +6,12 @@
 sudo pacman -Syu
 
 # Installs essential packages
-REQUIRED_PKGS="zsh nodejs npm openssh-client curl build-essential gdb python3.11-venv pip luarocks fd ripgrep make cargo neofetch"
+REQUIRED_PKGS="zsh nodejs npm openssh curl base-devel gdb python python-pip luarocks fd ripgrep make cargo neofetch"
 
 # Uncomment this for Debian/Ubuntu style distros
 # sudo apt install -y $REQUIRED_PKGS
 
-sudo pacman -Sy --needed $REQUIRED_PKGS
+sudo pacman -S --needed $REQUIRED_PKGS
 
 # Define Source and Target Path for symbolic links
 DOTFILES_DIR="$HOME/.dotfiles"
@@ -31,7 +31,7 @@ create_link "$DOTFILES_DIR/zsh/.zshrc" "$TARGET_DIR/.zshrc"
 
 # Install Oh-My-Zsh if not already installed
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	sh -c "$(curl -fsSL https://raw..com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 # Create symbolic links
@@ -54,5 +54,3 @@ echo "gdb location: $(which gdb)"
 # Messages
 echo "Installation and setup complete"
 echo "Restart or logout and log back to apply and check/verify changes"
-
-echo "Remember to set git as a valid ssh agent"
