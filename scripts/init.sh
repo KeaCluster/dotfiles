@@ -54,3 +54,5 @@ echo "gdb location: $(which gdb)"
 # Messages
 echo "Installation and setup complete"
 echo "Restart or logout and log back to apply and check/verify changes"
+
+echo "Remember to set git as a valid ssh agent"
