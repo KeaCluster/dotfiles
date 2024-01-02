@@ -1,11 +1,17 @@
 #!/bin/bash
 
-# Update package list and install basic software
-sudo apt update && sudo apt upgrade -y
+# Uncomment for Debian/Ubuntu
+# sudo apt update && sudo apt upgrade -y
+
+sudo pacman -Syu
 
 # Installs essential packages
 REQUIRED_PKGS="zsh nodejs npm openssh-client curl build-essential gdb python3.11-venv pip luarocks fd ripgrep make cargo neofetch"
-sudo apt install -y $REQUIRED_PKGS
+
+# Uncomment this for Debian/Ubuntu style distros
+# sudo apt install -y $REQUIRED_PKGS
+
+sudo pacman -S --needed $REQUIRED_PKGS
 
 # Define Source and Target Path for symbolic links
 DOTFILES_DIR="$HOME/.dotfiles"
