@@ -13,6 +13,7 @@
 
 ## About
 
+- Honestly, mostly neovim configuration
 - QA non-compliant
 - Not recommended
 - Mere experiment
@@ -48,7 +49,8 @@ or just run the files.
 
 This script will install basic programs as well as add some system links
 
-If you already have some config, you can just update system links to match this repo's files with:
+If you already have some configuration and would like to test mine,
+you can just update system links to match this repo's files with:
 
 ```sh
 sys_links.sh
@@ -56,11 +58,12 @@ sys_links.sh
 
 - NOTE:
 
-This won't make backups of your previous config.
+This might make a backup of your previous config if it exists,
+but I would recommend making that on your own.
 
 - Verify your installation with the script's instructions.
 
-### Nvim config is separate due to version constraints
+### Neovim config is separate due to version constraints
 
 ```sh
 nvim_setup.sh
