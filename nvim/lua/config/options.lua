@@ -28,10 +28,10 @@ set.incsearch = true
 set.termguicolors = true
 set.colorcolumn = "80"
 
-vim.cmd [[
+vim.cmd([[
   augroup TransparentBackground
-    autocmd!
-    autocmd ColorScheme,VimEnter,WinEnter,BufWinEnter * highlight LineNr guibg=NONE
-    autocmd ColorScheme,VimEnter,WinEnter,BufWinEnter * highlight SignColumn guibg=NONE
+  autocmd!
+  autocmd ColorScheme,VimEnter,WinEnter,BufWinEnter * highlight LineNr guibg=NONE
+  autocmd ColorScheme,VimEnter,WinEnter,BufWinEnter * highlight SignColumn guibg=NONE
   augroup END
-]]
+]])
