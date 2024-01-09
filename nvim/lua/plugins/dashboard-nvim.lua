@@ -37,7 +37,7 @@ return {
         shortcut = {
           { desc = "󰊳 Update", group = "@property", action = "Lazy update", key = "u" },
           {
-            icon = " ",
+            icon = " ",
             icon_hl = "@variable",
             desc = "Files",
             group = "Label",
@@ -51,13 +51,13 @@ return {
             key = "g",
           },
           {
-            desc = " Apps",
+            desc = "󰅩 Apps",
             group = "Find",
             action = "Telescope find_files search_dirs=~/code",
             key = "a",
           },
           {
-            desc = " ~/.dotfiles",
+            desc = "󰌽 ~/.dotfiles",
             group = "Number",
             action = "Telescope find_files search_dirs=~/.dotfiles",
             key = "d",
@@ -65,7 +65,7 @@ return {
         },
         packages = { enable = false },
         project = { limit = 4, icon = "󰶞" },
-        mru = { limit = 5, icon = "" },
+        mru = { limit = 5, icon = "󰙅" },
         footer = {},
       },
     })
