@@ -6,6 +6,7 @@ set.shiftwidth = 2
 set.expandtab = true
 set.smartindent = true
 
+-- this does nothign on terminal vim lmao
 set.linespace = 4
 
 -- set.completeopt = "menu,menuone,noselect,noinsert"
