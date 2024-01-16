@@ -6,6 +6,8 @@ set.shiftwidth = 2
 set.expandtab = true
 set.smartindent = true
 
+set.linespace = 4
+
 -- set.completeopt = "menu,menuone,noselect,noinsert"
 set.undofile = true
 set.signcolumn = "yes"
@@ -25,7 +27,7 @@ set.wrap = false
 set.hlsearch = false
 set.incsearch = true
 
-set.termguicolors = true
+set.termguicolors = false
 set.colorcolumn = "80"
 
 vim.cmd([[
