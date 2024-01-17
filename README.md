@@ -5,7 +5,7 @@
 - [About](#about)
 - [For](#for)
 - [How](#how)
-  - [Nvim config is separate due to version constraints](#nvim-config-is-separate-due-to-version-constraints)
+  - [Neovim](#neovim)
   - [Minimal theme](#minimal-theme)
 - [Screenshots](#screenshots)
 
@@ -63,7 +63,9 @@ but I would recommend making that on your own.
 
 - Verify your installation with the script's instructions.
 
-### Neovim config is separate due to version constraints
+### Neovim
+
+Config is separate due to version constraints
 
 ```sh
 nvim_setup.sh
@@ -71,7 +73,7 @@ nvim_setup.sh
 
 ### Minimal theme
 
-With the use of Zsh and OhMyZsh its optional to install this theme (I like it)
+With the use of Zsh and OhMyZsh its optional to install this theme (I like it leave me be)
 
 ```sh
 minimal_theme_setup.sh
