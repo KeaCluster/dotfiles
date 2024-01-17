@@ -73,7 +73,7 @@ nvim_setup.sh
 
 ### Minimal theme
 
-With the use of Zsh and OhMyZsh its optional to install this theme (I like it leave me be)
+Its optional to install this theme (I like it leave me be)
 
 ```sh
 minimal_theme_setup.sh
