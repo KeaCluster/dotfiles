@@ -6,5 +6,8 @@ return {
         visible = true,
       },
     },
+    window = {
+      width = 30, -- default is 40
+    },
   },
 }
