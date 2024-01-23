@@ -14,11 +14,12 @@ set.undofile = true
 set.signcolumn = "yes"
 
 -- cursor and movement
-
 set.guicursor = ""
+set.scrolloff = 8
+
+-- line numbers
 set.nu = true
 set.relativenumber = true
-set.scrolloff = 8
 
 set.smartindent = true
 set.wrap = false
