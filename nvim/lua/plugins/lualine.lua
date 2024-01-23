@@ -42,9 +42,7 @@ require("lualine").setup({
     section_separators = { left = "", right = "" },
   },
   sections = {
-    lualine_a = {
-      { "mode", separator = { left = "" }, right_padding = 2 },
-    },
+    lualine_a = {},
     lualine_b = { "filename", "branch" },
     lualine_c = { "fileformat" },
     lualine_x = {},
