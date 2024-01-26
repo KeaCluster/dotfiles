@@ -12,9 +12,10 @@ sudo pacman -Syu
 
 REQUIRED_PKGS="zsh nodejs npm openssh curl base-devel gdb python python-pip luarocks lazygit fd ripgrep make cargo neofetch"
 
-# Uncomment this for Debian/Ubuntu style distros
+# Ubuntu install
 # sudo apt install -y $REQUIRED_PKGS
 
+# Arch install
 sudo pacman -S --needed $REQUIRED_PKGS
 
 # Define Source and Target Path for symbolic links
@@ -23,10 +24,9 @@ TARGET_DIR="$HOME"
 
 # Function to create a symbolic link with backup
 create_link() {
-	if [ -f "$2" ] || [ -d "$2" ]; then
-		mv "$2" "$2.backup"
+	([ -f "$2" ] || [ -d "$2" ]) &&
+		mv "$2" "$2.backup" &&
 		echo "Existing file/directory $2 moved to $2.backup"
-	fi
 	ln -s "$1" "$2"
 }
 
@@ -34,9 +34,7 @@ create_link() {
 create_link "$DOTFILES_DIR/zsh/.zshrc" "$TARGET_DIR/.zshrc"
 
 # Install Oh-My-Zsh if not already installed
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-	sh -c "$(curl -fsSL https://raw..com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
+[! -d "$HOME/.oh-my-zsh"] && sh -c "$(curl -fsSL https://raw..com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Create symbolic links
 create_link "$DOTFILES_DIR/bash/.profile" "$TARGET_DIR/.profile"
@@ -44,16 +42,10 @@ create_link "$DOTFILES_DIR/bash/.bashrc" "$TARGET_DIR/.bashrc"
 create_link "$DOTFILES_DIR/git/.gitconfig" "$TARGET_DIR/.gitconfig"
 
 # Install Homebrew if not present
-if ! command -v brew &>/dev/null; then
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
+command -v brew &>/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Install minimal theme for Zsh (optional)
 [ -f ./minimal_theme_setup.sh ] && sh ./minimal_theme_setup.sh
-
-# Verify tools
-echo "g++ location: $(which g++)"
-echo "gdb location: $(which gdb)"
 
 # Messages
 echo "Installation and setup complete"
