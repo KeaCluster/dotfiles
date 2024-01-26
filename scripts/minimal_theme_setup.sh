@@ -7,20 +7,20 @@ install_minimal_theme() {
 	[Yy]*)
 		echo "Installing the minimal theme for Zsh..."
 		# Clone the minimal theme
-		if git clone https://github.com/subnixr/minimal.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/minimal; then
-			echo "Minimal theme cloned successfully."
-		else
-			echo "Error: Failed to clone the minimal theme."
-			exit 1
-		fi
+		git clone https://github.com/subnixr/minimal.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/minimal &&
+			echo "Minimal theme cloned successfully" ||
+			{
+				echo "Error: Failed to clone minimal theme."
+				exit 1
+			}
 
 		# Create a symbolic link for the theme
-		if ln -s ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/minimal/minimal.zsh-theme ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/minimal.zsh-theme; then
-			echo "Symbolic link for minimal theme created."
-		else
-			echo "Error: Failed to create a symbolic link for the minimal theme."
-			exit 1
-		fi
+		ln -s ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/minimal/minimal.zsh-theme ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/minimal.zsh-theme &&
+			echo "Symbolic link for minimal theme created." ||
+			{
+				echo "Error: Failed to create a symbolic link for the minimal theme."
+				exit 1
+			}
 
 		# Update .zshrc to use minimal theme
 		sed -i 's/^ZSH_THEME=.*$/ZSH_THEME="minimal"/' $HOME/.zshrc
