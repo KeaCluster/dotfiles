@@ -51,4 +51,8 @@ fi
 echo "Setting up LazyVim configuration..."
 ln -s "$DOTFILES_NVIM_DIR" "$NVIM_CONFIG_DIR"
 
+# Make nvim default editor
+[-z "$EDITOR"] && EDITOR=nvim
+echo $EDITOR
+
 echo "LazyVim setup complete."
