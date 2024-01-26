@@ -71,6 +71,17 @@ Config is separate due to version constraints
 nvim_setup.sh
 ```
 
+This will install neovim and set it as default editor.
+
+If already installed and would like to use my personal configuration,
+you can run the following individually::
+
+```sh
+lazyvim_setup.sh
+```
+
+If neither are installed, run them both.
+
 ### Minimal theme
 
 Its optional to install this theme (I like it leave me be)
