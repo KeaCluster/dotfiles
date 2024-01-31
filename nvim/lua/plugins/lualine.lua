@@ -23,7 +23,7 @@ return {
       normal = {
         a = { fg = kanagawa_colors.sumiInk, bg = kanagawa_colors.springYellow },
         b = { fg = kanagawa_colors.foam, bg = kanagawa_colors.waveBlue },
-        c = { fg = kanagawa_colors.sumiInk, bg = nil },
+        c = { fg = kanagawa_colors.springYellow, bg = nil },
       },
       insert = { a = { fg = kanagawa_colors.sumiInk, bg = kanagawa_colors.sakuraPink } },
       visual = { a = { fg = kanagawa_colors.sumiInk, bg = kanagawa_colors.springBlue } },
