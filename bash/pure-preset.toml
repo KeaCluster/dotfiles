@@ -1,5 +1,4 @@
 format = """
-$username\
 $hostname\
 $directory\
 $git_branch\
@@ -15,22 +14,22 @@ style = "fg:#7fb4ca" # springBlue
 
 [character]
 success_symbol = "[󰘧](fg:#e0af68)" # springYellow
-error_symbol = "[󰘧](fg:#d27e99)"   # sakuraPink
+error_symbol = "[󰘧](fg:#ff5d62)"   # sakuraPink
 vimcmd_symbol = "[󰘧](fg:#dcd7ba)"  # foam
 
 [git_branch]
 format = "[$branch]($style)"
-style = "fg:#223249"
+style = "fg:#d27e99"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+format = "[[(  $conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
 style = "fg:#7fb4ca"
-conflicted = "​"
+conflicted = "[](fg:#ff5d62)"
 untracked = "​"
-modified = "fg:#e0af68"
+modified = "​"
 staged = "​"
 renamed = "​"
-deleted = "​"
+deleted = "fg:#ff5d62"
 stashed = "≡"
 
 [git_state]
