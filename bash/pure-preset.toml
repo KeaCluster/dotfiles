@@ -11,15 +11,15 @@ $python\
 $character"""
 
 [directory]
-style = "blue"
+style = "fg:#7fb4ca" # springBlue
 
 [character]
-success_symbol = "[❯](purple)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+success_symbol = "[❯](fg:#e0af68)"  # springYellow
+error_symbol = "[❯](fg:#fg:d27e99)" # sakuraPink
+vimcmd_symbol = "[❮](fg:#dcd7ba)"   # foam
 
 [git_branch]
-format = "[$branch]($style)"
+format = "[$branch]($fg:#e0af68)"
 style = "bright-black"
 
 [git_status]
@@ -27,7 +27,7 @@ format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahe
 style = "cyan"
 conflicted = "​"
 untracked = "​"
-modified = "​"
+modified = "fg:#e0af68"
 staged = "​"
 renamed = "​"
 deleted = "​"
@@ -35,12 +35,12 @@ stashed = "≡"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
+style = "fg:#1f1f28"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "yellow"
+style = "fg:#e0af68"
 
 [python]
 format = "[$virtualenv]($style) "
-style = "bright-black"
+style = "fg:#dcd7ba"
