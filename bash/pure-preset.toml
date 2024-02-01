@@ -14,17 +14,17 @@ $character"""
 style = "fg:#7fb4ca" # springBlue
 
 [character]
-success_symbol = "[❯](fg:#e0af68)"  # springYellow
-error_symbol = "[❯](fg:#fg:d27e99)" # sakuraPink
-vimcmd_symbol = "[❮](fg:#dcd7ba)"   # foam
+success_symbol = "[󰘧](fg:#e0af68)" # springYellow
+error_symbol = "[󰘧](fg:#d27e99)"   # sakuraPink
+vimcmd_symbol = "[󰘧](fg:#dcd7ba)"  # foam
 
 [git_branch]
-format = "[$branch]($fg:#e0af68)"
-style = "bright-black"
+format = "[$branch]($style)"
+style = "fg:#223249"
 
 [git_status]
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
-style = "cyan"
+style = "fg:#7fb4ca"
 conflicted = "​"
 untracked = "​"
 modified = "fg:#e0af68"
