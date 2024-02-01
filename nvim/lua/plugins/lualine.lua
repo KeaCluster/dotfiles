@@ -57,7 +57,6 @@ return {
             warn = { fg = kanagawa_colors.springYellow },
             info = { fg = kanagawa_colors.foam},
           },
-          always_visible = true,
         }},
         lualine_y = { "filetype", "progress" },
         lualine_z = {
