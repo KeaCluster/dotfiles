@@ -30,11 +30,14 @@ create_link() {
 	ln -s "$1" "$2"
 }
 
-# .zshrc requires a link before Oh-my-zsh is installed
-create_link "$DOTFILES_DIR/zsh/.zshrc" "$TARGET_DIR/.zshrc"
+# Create zsh link for starship
+create_link "$DOTFILES_DIR/bash/.zshrc" "$TARGET_DIR/.zshrc"
 
-# Install Oh-My-Zsh if not already installed
-[! -d "$HOME/.oh-my-zsh"] && sh -c "$(curl -fsSL https://raw..com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+create_link "$DOTFILES_DIR/bash/pure-preset.toml" "$TARGET_DIR/.config/starship.toml"
+
+# install starship and theme
+curl -sS https://starship.rs/install.sh | sh &&
+	starship preset pure-preset -o ~/.config/starship.toml
 
 # Create symbolic links
 create_link "$DOTFILES_DIR/bash/.profile" "$TARGET_DIR/.profile"
@@ -45,7 +48,7 @@ create_link "$DOTFILES_DIR/git/.gitconfig" "$TARGET_DIR/.gitconfig"
 command -v brew &>/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Install minimal theme for Zsh (optional)
-[ -f ./minimal_theme_setup.sh ] && sh ./minimal_theme_setup.sh
+# [ -f ./minimal_theme_setup.sh ] && sh ./minimal_theme_setup.sh
 
 # Messages
 echo "Installation and setup complete"
