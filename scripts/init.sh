@@ -31,7 +31,7 @@ create_link() {
 }
 
 # Create zsh link for starship
-create_link "$DOTFILES_DIR/bash/.zshrc" "$TARGET_DIR/.zshrc"
+create_link "$DOTFILES_DIR/zsh/.zshrc" "$TARGET_DIR/.zshrc"
 
 create_link "$DOTFILES_DIR/bash/pure-preset.toml" "$TARGET_DIR/.config/starship.toml"
 
