@@ -13,7 +13,7 @@ return {
   config = function()
     local kanagawa_colors = {
       sumiInk = '#1f1f28',
-      springBlue = '#938aa9',
+      springBlue = '#7fb4ca',
       waveBlue = '#223249',
       foam = '#dcd7ba',
       springYellow = '#e0af68',
@@ -30,9 +30,9 @@ return {
       replace = { a = { fg = kanagawa_colors.sumiInk, bg = kanagawa_colors.springYellow } },
 
       inactive = {
-        a = { fg = kanagawa_colors.foam, bg = nil },
-        b = { fg = kanagawa_colors.foam, bg = nil },
-        c = { fg = kanagawa_colors.sumiInk, bg = nil },
+        a = { fg = kanagawa_colors.foam, bg = kanagawa_colors.foam },
+        b = { fg = kanagawa_colors.foam, bg = kanagawa_colors.foam},
+        c = { fg = kanagawa_colors.sumiInk, bg = kanagawa_colors.foam},
       },
     }
     require("lualine").setup({
