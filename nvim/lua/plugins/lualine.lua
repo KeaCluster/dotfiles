@@ -45,9 +45,18 @@ return {
         lualine_a = {
           {'mode', separator = { left="" }, right_padding = 2},
         },
-        lualine_b = { "filename", "branch" },
+        lualine_b = { "filename", "branch", {
+          'diagnostics',
+          sources = {'nvim_diagnostic'},
+          symbols = { error = ' ', warn = ' ', info = ' '},
+          diagnostics_color= {
+            color_error = { fg = kanagawa_colors.sakuraPink},
+            color_warn = { fg = kanagawa_colors.springYellow},
+            color_info = {fg = kanagawa_colors.waveBlue},
+          },
+        } },
         lualine_c = { "fileformat" },
-        lualine_x = {},
+        lualine_x = {"hostname" },
         lualine_y = { "filetype", "progress" },
         lualine_z = {
           { "location", separator = { right = '' },left_padding = 2 },
