@@ -33,6 +33,7 @@ create_link() {
 # Create zsh link for starship
 create_link "$DOTFILES_DIR/zsh/.zshrc" "$TARGET_DIR/.zshrc"
 
+# This will apply current custom pure starship
 create_link "$DOTFILES_DIR/bash/pure-preset.toml" "$TARGET_DIR/.config/starship.toml"
 
 # install starship and theme
