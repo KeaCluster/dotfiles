@@ -29,13 +29,14 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "kanagawa", "tokyonight", "habamax" } },
+  install = { colorscheme = { "kanagawa", "tokyonight" } },
   checker = { enabled = true }, -- automatically check for plugin updates
   -- kanagawa enabled
   performance = {
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {
+
         "gzip",
         -- "matchit",
         -- "matchparen",
