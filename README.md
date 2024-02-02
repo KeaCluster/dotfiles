@@ -6,7 +6,8 @@
 - [For](#for)
 - [How](#how)
   - [Neovim](#neovim)
-  - [Minimal theme](#minimal-theme)
+  - [Starship](#starship)
+  - [Prev -> Minimal theme](#prev---minimal-theme)
 - [Screenshots](#screenshots)
 
 <!-- tocstop -->
@@ -82,9 +83,24 @@ lazyvim_setup.sh
 
 If neither are installed, run them both.
 
-### Minimal theme
+### Starship
 
-Its optional to install this theme (I like it leave me be)
+I switched from oh-my-zsh to starship as my command shell prompt.
+
+If you're using starship, and want to use my setup:
+Uncomment this line from `sys_links.sh`.
+
+```sh
+create_link "$DOTFILES_DIR/bash/pure-preset.toml" "$TARGET_DIR/.config/starship.toml"
+```
+
+If running `init.sh`:
+it will instal starship and apply my modified pure theme to it.
+(kanagawa-ish colors + couple of icons)
+
+### Prev -> Minimal theme
+
+When using oh-my-zsh I had a minimal theme:
 
 ```sh
 minimal_theme_setup.sh
