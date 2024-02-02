@@ -22,6 +22,8 @@ create_link "$DOTFILES_DIR/git/.gitconfig" "$TARGET_DIR/.gitconfig"
 # uncomment the follwing if nvim wont be installed through nvim_setup.sh
 # create_link "$DOTFILES_DIR/nvim" "$TARGET_DIR/.config/nvim"
 create_link "$DOTFILES_DIR/zsh/.zshrc" "$TARGET_DIR/.zshrc"
+# only do this if you're already using starship for bash
+# create_link "$DOTFILES_DIR/bash/pure-preset.toml" "$TARGET_DIR/.config/starship.toml"
 
 # Finished message
 echo "Symbolic links have been created"
