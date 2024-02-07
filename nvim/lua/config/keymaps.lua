@@ -1,3 +1,10 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
+local set = vim.g
+local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
+local builtin = require("telescope.builtin")
+
+-- grep that sht
+map("n", "<leader>ps", function()
+  builtin.grep_string({ search = vim.fn.input("Grep > ") })
+end)
+map("n", "<leader>vh", builtin.help_tags, {})
