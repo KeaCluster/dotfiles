@@ -52,7 +52,7 @@ return {
           sources = {'nvim_diagnostic'},
           sections = {'error', 'warn', 'info'},
           symbols = { error = ' ', warn = ' ', info = ' '},
-         diagnostics_color= {
+          diagnostics_color= {
             error = { fg = kanagawa_colors.sakuraPink },
             warn = { fg = kanagawa_colors.springYellow },
             info = { fg = kanagawa_colors.foam},
