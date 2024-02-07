@@ -32,7 +32,7 @@ set.incsearch = true
 set.termguicolors = false
 set.colorcolumn = "80"
 
--- somehow side bar with numbers isn't tarnsparent
+-- somehow side bar with numbers isn't tarnsparent and some of this is necessary
 vim.cmd([[
   augroup TransparentBackground
   autocmd!
