@@ -9,7 +9,7 @@ alias grep='grep --color=auto'
 alias c='clear'
 
 # info
-alias path='echo -e $(PATH//:/\\n)'
+alias path='echo -e ${PATH//:/"\n"}'
 alias now='date + "%T"'
 
 # safe
