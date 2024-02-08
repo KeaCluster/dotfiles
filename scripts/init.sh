@@ -43,6 +43,7 @@ curl -sS https://starship.rs/install.sh | sh &&
 # Create symbolic links
 create_link "$DOTFILES_DIR/bash/.profile" "$TARGET_DIR/.profile"
 create_link "$DOTFILES_DIR/bash/.bashrc" "$TARGET_DIR/.bashrc"
+create_link "$DOTFILES_DIR/bash/.bash_aliases" "$TARGET_DIR/.bash_aliases"
 create_link "$DOTFILES_DIR/git/.gitconfig" "$TARGET_DIR/.gitconfig"
 
 # Install Homebrew if not present

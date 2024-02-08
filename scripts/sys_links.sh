@@ -18,6 +18,7 @@ create_link() {
 # create symbolic links
 create_link "$DOTFILES_DIR/bash/.profile" "$TARGET_DIR/.profile"
 create_link "$DOTFILES_DIR/bash/.bashrc" "$TARGET_DIR/.bashrc"
+create_link "$DOTFILES_DIR/bash/.bash_aliases" "$TARGET_DIR/.bash_aliases"
 create_link "$DOTFILES_DIR/git/.gitconfig" "$TARGET_DIR/.gitconfig"
 # uncomment the follwing if nvim wont be installed through nvim_setup.sh
 # create_link "$DOTFILES_DIR/nvim" "$TARGET_DIR/.config/nvim"
