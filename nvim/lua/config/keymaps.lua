@@ -1,7 +1,9 @@
 local opts = { noremap = true, silent = true }
-
 local map = vim.keymap.set
 local builtin = require("telescope.builtin")
+
+-- localleader
+vim.g.maplocalleader = ","
 
 -- Only used in certain cases such as spectre
 -- Default <leader> is <space>
