@@ -14,7 +14,7 @@ set.undofile = true
 set.signcolumn = "yes"
 
 -- cursor and movement
-set.guicursor = ""
+set.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 set.scrolloff = 8
 
 -- line numbers
