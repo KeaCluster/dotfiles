@@ -22,7 +22,6 @@ return {
       "regex",
       "toml",
       "tsx",
-      "jsx",
       "properties",
       "sql",
       "typescript",
