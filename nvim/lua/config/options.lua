@@ -9,7 +9,8 @@ set.smartindent = true
 -- this does nothign on terminal vim lmao
 set.linespace = 4
 
--- set.completeopt = "menu,menuone,noselect,noinsert"
+vim.o.complete = ".,w,b,u,U,i,d,t"
+set.completeopt = "menu,menuone,noselect,noinsert"
 set.undofile = true
 set.signcolumn = "yes"
 
@@ -17,15 +18,23 @@ set.signcolumn = "yes"
 set.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 set.scrolloff = 8
 
--- line numbers
+-- line numbers and lines
 set.nu = true
 set.relativenumber = true
-
 set.smartindent = true
 set.wrap = false
 
--- Search utils
+-- more
+set.showbreak = "↪ "
+set.listchars = {}
+set.fillchars:append({ eob = " " })
+set.list = true
+set.listchars = { tab = "▸ ", extends = "❯", precedes = "❮", nbsp = "±", trail = "⣿" }
 
+-- dic
+set.spelllang = "en,es"
+
+-- Search utils
 set.hlsearch = false
 set.incsearch = true
 
