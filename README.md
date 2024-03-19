@@ -1,16 +1,16 @@
 # Personal dotfiles
 
-<!-- toc -->
+<!--toc:start-->
 
 - [About](#about)
 - [For](#for)
 - [How](#how)
   - [Neovim](#neovim)
   - [Starship](#starship)
-  - [Prev -> Minimal theme](#prev---minimal-theme)
+  - [Minimal theme(Prev)](#minimal-themeprev)
 - [Screenshots](#screenshots)
 
-<!-- tocstop -->
+<!--toc:end-->
 
 ## About
 
@@ -18,11 +18,13 @@
 - QA non-compliant
 - Not recommended
 - Mere experiment
-- nvim, git, zsh, node, ssh client, c++ tools, brew, etc...
+- nvim + plugins, zsh, starship, node, ssh client, c++ tools, brew, etc...
+  - Contains some aliases
+  - Contains some starship config
 
 ## For
 
-Minimal Debian (or) Arch setup (No GUI config)
+Minimal Arch setup (No GUI config, prev DEBIAN)
 
 ## How
 
@@ -30,22 +32,28 @@ Minimal Debian (or) Arch setup (No GUI config)
 git clone https://github.com/KeaCluster/dotfiles.git ~/.dotfiles
 ```
 
-You can add execution permition to these scripts with:
+You can add execution permission to these scripts with:
 
 ```sh
 chmod u+x ~/.dotfiles/scripts/init.sh
 ```
 
+You might need to sudo-it
+
+```sh
+sudo chmod 700 ~/.dotfiles/scripts/init.sh
+```
+
 Then `cd` into `scripts` or do it from any directory
 
 ```sh
-cd ~/.dotfiles/scripts/
+cd ~/.dotfiles/scripts/ && sh init.sh
 ```
 
 or just run the files.
 
 ```sh
-~/.dotfiles/scripts/init.sh
+sh ~/.dotfiles/scripts/init.sh
 ```
 
 This script will install basic programs as well as add some system links
@@ -54,7 +62,7 @@ If you already have some configuration and would like to test mine,
 you can just update system links to match this repo's files with:
 
 ```sh
-sys_links.sh
+sh sys_links.sh
 ```
 
 - NOTE:
@@ -69,7 +77,7 @@ but I would recommend making that on your own.
 Config is separate due to version constraints
 
 ```sh
-nvim_setup.sh
+sh nvim_setup.sh
 ```
 
 This will install neovim and set it as default editor.
@@ -78,7 +86,7 @@ If already installed and would like to use my personal configuration,
 you can run the following individually::
 
 ```sh
-lazyvim_setup.sh
+sh lazyvim_setup.sh
 ```
 
 If neither are installed, run them both.
@@ -98,12 +106,12 @@ If running `init.sh`:
 it will instal starship and apply my modified pure theme to it.
 (kanagawa-ish colors + couple of icons)
 
-### Prev -> Minimal theme
+### Minimal theme(Prev)
 
 When using oh-my-zsh I had a minimal theme:
 
 ```sh
-minimal_theme_setup.sh
+sh minimal_theme_setup.sh
 ```
 
 ## Screenshots
