@@ -10,7 +10,7 @@ sudo pacman -Syu
 # REQUIRED_PKGS="zsh nodejs npm openssh-client curl base-devel gdb python3.11-venv pip luarocks fd ripgrep make cargo neofetch"
 # Arch
 
-REQUIRED_PKGS="zsh nodejs npm openssh curl base-devel gdb python python-pip luarocks lazygit fd ripgrep make cargo ruby zoxide neofetch"
+REQUIRED_PKGS="zsh nodejs npm openssh curl base-devel gdb python python-pip luarocks lazygit fd ripgrep make cargo ruby zoxide tree docker neofetch man-db"
 
 # Ubuntu install
 # sudo apt install -y $REQUIRED_PKGS
