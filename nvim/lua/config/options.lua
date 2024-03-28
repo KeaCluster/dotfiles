@@ -16,7 +16,6 @@ set.signcolumn = "yes"
 
 -- cursor and movement
 set.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
-set.scrolloff = 8
 
 -- line numbers and lines
 set.nu = true
@@ -24,11 +23,11 @@ set.relativenumber = true
 set.smartindent = true
 set.wrap = false
 
--- more
+-- characters
+set.list = true
 set.showbreak = "↪ "
 set.listchars = {}
 set.fillchars = { eob = " " }
-set.list = true
 set.listchars = { tab = "▸ ", extends = "❯", precedes = "❮", nbsp = "±", trail = "⣿" }
 
 -- dic
@@ -37,9 +36,18 @@ set.spelllang = "en,es"
 -- Search utils
 set.hlsearch = false
 set.incsearch = true
+set.ignorecase = true
+set.smartcase = true
 
+-- colors tabs
 set.termguicolors = false
 set.colorcolumn = "80"
+set.showtabline = 0
+
+-- other
+set.scrolloff = 8
+set.sidescrolloff = 8
+set.confirm = true
 
 -- somehow side bar with numbers isn't tarnsparent and some of this is necessary
 vim.cmd([[
