@@ -27,7 +27,7 @@ set.wrap = false
 -- more
 set.showbreak = "↪ "
 set.listchars = {}
-set.fillchars:append({ eob = " " })
+set.fillchars = { eob = " " }
 set.list = true
 set.listchars = { tab = "▸ ", extends = "❯", precedes = "❮", nbsp = "±", trail = "⣿" }
 
