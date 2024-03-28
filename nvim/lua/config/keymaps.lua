@@ -13,3 +13,10 @@ map("n", "<leader>ps", function()
   builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
 map("n", "<leader>vh", builtin.help_tags, {})
+
+-- Tab to do tab
+map("n", "<Tab>", ">>")
+map("n", "<S-Tab>", "<<")
+map("v", "<Tab>", ">gv")
+map("v", "<S-Tab>", "<gv")
+map("i", "<S-Tab>", "<C-\\><C-N><<<C-\\><C-N>^i")
