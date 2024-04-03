@@ -2,9 +2,10 @@ return {
   "rcarriga/nvim-notify",
   config = function()
     require("notify").setup({
-      enabled = true,
+      fps = 60,
       render = "wrapped-compact",
-      style = "fade_in_slide_out",
+      style = "fade",
+      minimum_width = 40,
     })
     require("notify").history()
   end,
