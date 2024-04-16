@@ -1,78 +1,111 @@
--- Bubbles config for lualine
--- Author: lokesh-krishna
+-- Eviline config for lualine
+-- Author: shadmansaleh
+-- Credit: glepnir
 -- MIT license, see LICENSE for more details.
 
 
 -- Custom Kanagawa themed colors
 -- Stylua has no default kanagawa theme so i made my own
--- Gruvbox would work but it was too bright
+-- Gruvbox would work but it was too bright for me
 
 -- stylua: ignore
 return {
   "nvim-lualine/lualine.nvim",
   config = function()
-    local kanagawa_colors = {
-      sumiInk = '#1f1f28',
-      springBlue = '#7fb4ca',
-      waveBlue = '#223249',
-      foam = '#dcd7ba',
-      springYellow = '#e0af68',
-      sakuraPink = '#d27e99',
+    local colors = {
+      bg = '#1f1f28',        -- sumiInk
+      fg = '#dcd7ba',           -- foam
+      blue = '#7fb4ca',     -- springBlue
+      darkblue = '#223249',       -- waveBlue
+      yellow = '#e0af68',   -- springYellow
+      pink = '#d27e99',     -- sakuraPink
     }
-    local bubbles_theme = {
-      normal = {
-        a = { fg = kanagawa_colors.sumiInk, bg = kanagawa_colors.springYellow },
-        b = { fg = kanagawa_colors.foam, bg = kanagawa_colors.waveBlue },
-        c = { fg = kanagawa_colors.springYellow, bg = nil },
-      },
-      insert = { a = { fg = kanagawa_colors.sumiInk, bg = kanagawa_colors.sakuraPink } },
-      visual = { a = { fg = kanagawa_colors.sumiInk, bg = kanagawa_colors.springBlue } },
-      replace = { a = { fg = kanagawa_colors.sumiInk, bg = kanagawa_colors.springYellow } },
 
-      inactive = {
-        a = { fg = kanagawa_colors.foam, bg = kanagawa_colors.foam },
-        b = { fg = kanagawa_colors.foam, bg = kanagawa_colors.foam},
-        c = { fg = kanagawa_colors.sumiInk, bg = kanagawa_colors.foam},
-      },
+    local conditions = {
+      buffer_not_empty = function()
+        return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
+      end,
+      hide_in_width = function()
+        return vim.fn.winwidth(0) > 80
+      end,
     }
-    require("lualine").setup({
+
+    local config = {
       options = {
-        theme = bubbles_theme,
-        component_separators = "|",
-        section_separators = { left = "", right = "" },
+        component_separators = "",
+        section_separators = "",
+        theme = {
+          normal = { c = { fg = colors.fg, bg = colors.bg } },
+          inactive = { c = { fg = colors.fg, bg = colors.bg } },
+        },
       },
       sections = {
-        lualine_a = {
-          {'mode', separator = { left="" }, right_padding = 2},
-        },
-        lualine_b = { "filename", "branch"},
-        lualine_c = { "fileformat" },
-        lualine_x = {{
-          'diagnostics',
-          sources = {'nvim_diagnostic'},
-          sections = {'error', 'warn', 'info'},
-          symbols = { error = ' ', warn = ' ', info = ' '},
-          diagnostics_color= {
-            error = { fg = kanagawa_colors.sakuraPink },
-            warn = { fg = kanagawa_colors.springYellow },
-            info = { fg = kanagawa_colors.foam},
-          },
-        }},
-        lualine_y = { "filetype", "progress" },
-        lualine_z = {
-          { "location", separator = { right = '' },left_padding = 2 },
-        },
-      },
-      inactive_sections = {
-        lualine_a = { "filename" },
+        lualine_a = {},
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = { "location" },
+        lualine_z = {},
       },
-      tabline = {},
-      extensions = {},
-    })
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+      },
+    }
+
+    local function ins_left(component)
+      table.insert(config.sections.lualine_c, component)
+    end
+
+    local function ins_right(component)
+      table.insert(config.sections.lualine_x, component)
+    end
+
+    -- left
+    ins_left {
+      'mode',
+      color = { fg = colors.pink },
+      padding = { right = 1 }
+    }
+    ins_left {
+      'filename',
+      cond = conditions.buffer_not_empty,
+      color = { fg = colors.yellow, gui = 'bold' },
+    }
+    ins_left {
+      'diagnostics',
+      sources = { 'nvim_diagnostic' },
+      symbols = {  error = ' ', warn = ' ', info = '󰋽' },
+      diagnostics_color = {
+        error = { fg = colors.pink },
+        warn = { fg = colors.yellow },
+        info = { fg = colors.blue },
+      },
+    }
+
+    -- right
+    ins_right {
+      'o:encoding',
+      fmt = string.upper,
+      cond = conditions.hide_in_width,
+      color = { fg = colors.yellow, gui = 'bold' },
+    }
+    ins_right {
+      'fileformat',
+      fmt = string.upper,
+      icons_enabled = true,
+      color = { fg = colors.yellow, gui = 'bold' },
+    }
+    ins_right {
+      'branch',
+      icon = '',
+      color = { fg = colors.pink, gui = 'bold' },
+    }
+
+    require('lualine').setup(config)
   end
 }
