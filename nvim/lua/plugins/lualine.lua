@@ -67,15 +67,33 @@ return {
 
     -- left
     ins_left {
+      function()
+        return '▊'
+      end,
+      color = { fg = colors.yellow},
+      padding = { left = 0, right = 1 },
+    }
+    ins_left {
       'mode',
-      color = { fg = colors.pink },
+      color = function()
+        local mode_color = {
+          n = colors.pink,
+          i = colors.yellow,
+          v = colors.blue,
+          [''] = colors.blue,
+          V = colors.blue,
+        }
+        return { fg = mode_color[vim.fn.mode()] or colors.pink }
+      end,
       padding = { right = 1 }
     }
+    ins_left { 'location' }
     ins_left {
       'filename',
       cond = conditions.buffer_not_empty,
       color = { fg = colors.yellow, gui = 'bold' },
     }
+
     ins_left {
       'diagnostics',
       sources = { 'nvim_diagnostic' },
@@ -89,21 +107,33 @@ return {
 
     -- right
     ins_right {
-      'o:encoding',
-      fmt = string.upper,
-      cond = conditions.hide_in_width,
-      color = { fg = colors.yellow, gui = 'bold' },
-    }
-    ins_right {
       'fileformat',
       fmt = string.upper,
       icons_enabled = true,
       color = { fg = colors.yellow, gui = 'bold' },
     }
+    ins_right { 'filetype' }
+    ins_right {
+      'progress',
+      color = { fg = colors.fg, gui = 'bold' }
+    }
     ins_right {
       'branch',
       icon = '',
       color = { fg = colors.pink, gui = 'bold' },
+    }
+    ins_right {
+      function()
+        return os.date("%H:%M")
+      end,
+      color = { fg = colors.blue, gui = 'bold' }
+    }
+    ins_right {
+      function()
+        return '▊'
+      end,
+      color = { fg = colors.yellow},
+      padding = { left = 1 },
     }
 
     require('lualine').setup(config)
