@@ -13,12 +13,12 @@ return {
   "nvim-lualine/lualine.nvim",
   config = function()
     local colors = {
-      bg = '#1f1f28',        -- sumiInk
+      bg = '#1f1f28',           -- sumiInk
       fg = '#dcd7ba',           -- foam
-      blue = '#7fb4ca',     -- springBlue
-      darkblue = '#223249',       -- waveBlue
-      yellow = '#e0af68',   -- springYellow
-      pink = '#d27e99',     -- sakuraPink
+      blue = '#7fb4ca',         -- springBlue
+      darkblue = '#223249',     -- waveBlue
+      yellow = '#e0af68',       -- springYellow
+      pink = '#d27e99',         -- sakuraPink
     }
 
     local conditions = {
