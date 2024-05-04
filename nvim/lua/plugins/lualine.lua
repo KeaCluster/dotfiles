@@ -1,12 +1,15 @@
+-- -------------------------
 -- Eviline config for lualine
 -- Author: shadmansaleh
 -- Credit: glepnir
 -- MIT license, see LICENSE for more details.
+-- -------------------------
 
 
+-- -------------------------
 -- Custom Kanagawa themed colors
--- Stylua has no default kanagawa theme so i made my own
--- Gruvbox would work but it was too bright for me
+-- Reformatted sections
+-- -------------------------
 
 -- stylua: ignore
 return {
@@ -73,6 +76,7 @@ return {
       color = { fg = colors.yellow},
       padding = { left = 0, right = 1 },
     }
+
     ins_left {
       'mode',
       color = function()
@@ -87,7 +91,9 @@ return {
       end,
       padding = { right = 1 }
     }
+
     ins_left { 'location' }
+
     ins_left {
       'filename',
       cond = conditions.buffer_not_empty,
@@ -112,22 +118,27 @@ return {
       icons_enabled = true,
       color = { fg = colors.yellow, gui = 'bold' },
     }
+
     ins_right { 'filetype' }
+
     ins_right {
       'progress',
       color = { fg = colors.fg, gui = 'bold' }
     }
+
     ins_right {
       'branch',
       icon = '',
       color = { fg = colors.pink, gui = 'bold' },
     }
+
     ins_right {
       function()
         return os.date("%H:%M")
       end,
       color = { fg = colors.blue, gui = 'bold' }
     }
+
     ins_right {
       function()
         return '▊'
