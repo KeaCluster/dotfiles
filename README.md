@@ -7,7 +7,6 @@
 - [How](#how)
   - [Neovim](#neovim)
   - [Starship](#starship)
-  - [Minimal theme(Prev)](#minimal-themeprev)
 - [Screenshots](#screenshots)
 
 <!--toc:end-->
@@ -105,14 +104,6 @@ create_link "$DOTFILES_DIR/bash/pure-preset.toml" "$TARGET_DIR/.config/starship.
 If running `init.sh`:
 it will instal starship and apply my modified pure theme to it.
 (kanagawa-ish colors + couple of icons)
-
-### Minimal theme(Prev)
-
-When using oh-my-zsh I had a minimal theme:
-
-```sh
-sh minimal_theme_setup.sh
-```
 
 ## Screenshots
 
