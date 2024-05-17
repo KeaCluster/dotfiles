@@ -15,7 +15,7 @@ vim.o.complete = ".,w,b,u,U,i,d,t"
 set.completeopt = "menu,menuone,noselect,noinsert"
 
 -- cursor and movement
-set.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+-- set.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 
 -- line numbers and lines
 set.nu = true

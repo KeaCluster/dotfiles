@@ -11,7 +11,6 @@ return {
       "javascript",
       "lua",
       "luadoc",
-      "latex",
       "gitignore",
       "graphql",
       "go",
