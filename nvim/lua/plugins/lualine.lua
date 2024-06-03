@@ -22,6 +22,7 @@ return {
       darkblue = '#223249',     -- waveBlue
       yellow = '#e0af68',       -- springYellow
       pink = '#d27e99',         -- sakuraPink
+      transparentbg = nil,
     }
 
     local conditions = {
@@ -38,8 +39,8 @@ return {
         component_separators = "",
         section_separators = "",
         theme = {
-          normal = { c = { fg = colors.fg, bg = colors.bg } },
-          inactive = { c = { fg = colors.fg, bg = colors.bg } },
+          normal = { c = { fg = colors.fg, bg = colors.transparentbg } },
+          inactive = { c = { fg = colors.fg, bg = colors.transparentbg} },
         },
       },
       sections = {
