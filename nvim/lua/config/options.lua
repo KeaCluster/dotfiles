@@ -28,9 +28,8 @@ set.sidescrolloff = 8
 -- characters
 set.list = true
 set.showbreak = "↪ "
-set.listchars = {}
-set.fillchars = { eob = " " }
-set.listchars = { tab = "▸ ", extends = "❯", precedes = "❮", nbsp = "±", trail = "⣿" }
+set.fillchars = { eob = " ", vert = " " }
+set.listchars = { extends = "❯", precedes = "❮", nbsp = "±", trail = "⣿" }
 
 -- dic
 set.spelllang = "en,es"
