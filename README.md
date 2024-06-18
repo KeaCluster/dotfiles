@@ -105,6 +105,11 @@ If running `init.sh`:
 it will instal starship and apply my modified pure theme to it.
 (kanagawa-ish colors + couple of icons)
 
+### Other
+
+There's a script to update arch' gpg keys.
+Use it or not idc.
+
 ## Screenshots
 
 ![terminal](./images/terminal.png)
