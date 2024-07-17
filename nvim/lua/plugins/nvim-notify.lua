@@ -6,6 +6,7 @@ return {
       render = "wrapped-compact",
       style = "fade",
       minimum_width = 40,
+      enabled = false,
     })
     require("notify").history()
   end,
