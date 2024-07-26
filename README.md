@@ -2,30 +2,32 @@
 
 <!--toc:start-->
 
-- [About](#about)
-- [For](#for)
-- [How](#how)
-  - [Neovim](#neovim)
-  - [Starship](#starship)
-- [Screenshots](#screenshots)
+- [Personal dotfiles](#personal-dotfiles)
+  - [About](#about)
+  - [For](#for)
+  - [How](#how)
+    - [Neovim](#neovim)
+    - [Starship](#starship)
+    - [Other](#other)
+  - [Screenshots](#screenshots)
 
 <!--toc:end-->
 
 ## About
 
-- Honestly, mostly neovim configuration
-- QA non-compliant
-- Not recommended
-- Mere experiment
+- Personal config files for multiple tools: linux dev env mostly.
+- Neovim configuration and Arch initial setup scripts (time savers),
 - nvim + plugins, zsh, starship, node, ssh client, c++ tools, brew, etc...
-  - Contains some aliases
-  - Contains some starship config
+  - Contains some aliases.
+  - Contains some starship config.
 
 ## For
 
-Minimal Arch setup (No GUI config, prev DEBIAN)
+Minimal Arch setup with no GUI.
 
 ## How
+
+Clone and install whatever you want.
 
 ```sh
 git clone https://github.com/KeaCluster/dotfiles.git ~/.dotfiles
@@ -66,14 +68,16 @@ sh sys_links.sh
 
 - NOTE:
 
-This might make a backup of your previous config if it exists,
+This might make a backup of your previous configuration if it exists,
 but I would recommend making that on your own.
 
 - Verify your installation with the script's instructions.
 
 ### Neovim
 
-Config is separate due to version constraints
+> [!IMPORTANT]
+> This was the prev used file in order to install neovim.
+> You can now install it from the AUR (I recommend that).
 
 ```sh
 sh nvim_setup.sh
@@ -95,7 +99,7 @@ If neither are installed, run them both.
 I switched from oh-my-zsh to starship as my command shell prompt.
 
 If you're using starship, and want to use my setup:
-Uncomment this line from `sys_links.sh`.
+Uncomment this line from `sys_links.sh`:
 
 ```sh
 create_link "$DOTFILES_DIR/bash/pure-preset.toml" "$TARGET_DIR/.config/starship.toml"
@@ -107,8 +111,7 @@ it will instal starship and apply my modified pure theme to it.
 
 ### Other
 
-There's a script to update arch' gpg keys.
-Use it or not idc.
+There's a script to update arch' gpg keys because I'm lazy.
 
 ## Screenshots
 
