@@ -15,3 +15,8 @@ export EDITOR=nvim
 
 # Deno
 . "/home/salem/.deno/env"
+
+# Deno completions
+fpath=(~/.dotfiles/zsh $fpath)
+autoload -Uz compinit
+compinit -u
