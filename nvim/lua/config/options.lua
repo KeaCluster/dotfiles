@@ -48,12 +48,3 @@ set.showtabline = 0
 -- other
 set.confirm = true
 set.updatetime = 100
-
--- somehow side bar with numbers isn't tarnsparent and some of this is necessary
-vim.cmd([[
-  augroup TransparentBackground
-  autocmd!
-  autocmd ColorScheme,VimEnter,WinEnter,BufWinEnter * highlight LineNr guibg=NONE
-  autocmd ColorScheme,VimEnter,WinEnter,BufWinEnter * highlight SignColumn guibg=NONE
-  augroup END
-]])
