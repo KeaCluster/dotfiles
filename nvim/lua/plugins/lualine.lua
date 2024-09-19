@@ -22,6 +22,7 @@ return {
       darkblue = '#223249',     -- waveBlue
       yellow = '#e0af68',       -- springYellow
       pink = '#d27e99',         -- sakuraPink
+      fujiWhite = "#dcd7ba",    -- fujiWhite foreground
       transparentbg = nil,
     }
 
@@ -61,6 +62,26 @@ return {
       },
     }
 
+    local mode_map = {
+      ['NORMAL'] = 'N',
+      ['O-PENDING'] = 'N?',
+      ['INSERT'] = 'I',
+      ['VISUAL'] = 'V',
+      ['V-BLOCK'] = 'VB',
+      ['V-LINE'] = 'VL',
+      ['V-REPLACE'] = 'VR',
+      ['REPLACE'] = 'R',
+      ['COMMAND'] = '!',
+      ['SHELL'] = 'SH',
+      ['TERMINAL'] = 'T',
+      ['EX'] = 'X',
+      ['S-BLOCK'] = 'SB',
+      ['S-LINE'] = 'SL',
+      ['SELECT'] = 'S',
+      ['CONFIRM'] = 'Y?',
+      ['MORE'] = 'M',
+    }
+
     local function ins_left(component)
       table.insert(config.sections.lualine_c, component)
     end
@@ -69,7 +90,8 @@ return {
       table.insert(config.sections.lualine_x, component)
     end
 
-    -- left
+    -- left items
+
     ins_left {
       function()
         return '▊'
@@ -80,6 +102,7 @@ return {
 
     ins_left {
       'mode',
+      fmt = function(s) return mode_map[s] or s end,
       color = function()
         local mode_color = {
           n = colors.pink,
@@ -93,26 +116,22 @@ return {
       padding = { right = 1 }
     }
 
-    ins_left { 'location' }
+    -- ins_left { 'location' }
+
+    ins_left {
+      'branch',
+      icon = '',
+      color = { fg = colors.pink, gui = 'bold' },
+    }
 
     ins_left {
       'filename',
       cond = conditions.buffer_not_empty,
-      color = { fg = colors.yellow, gui = 'bold' },
+      color = { fg = colors.fujiWhite, },
     }
 
-    ins_left {
-      'diagnostics',
-      sources = { 'nvim_diagnostic' },
-      symbols = {  error = ' ', warn = ' ', info = '󰋽' },
-      diagnostics_color = {
-        error = { fg = colors.pink },
-        warn = { fg = colors.yellow },
-        info = { fg = colors.blue },
-      },
-    }
+    -- right items
 
-    -- right
     ins_right {
       'fileformat',
       fmt = string.upper,
@@ -120,25 +139,32 @@ return {
       color = { fg = colors.yellow, gui = 'bold' },
     }
 
-    ins_right { 'filetype' }
-
     ins_right {
-      'progress',
-      color = { fg = colors.fg, gui = 'bold' }
+      'diagnostics',
+      sources = { 'nvim_diagnostic' },
+      always_visible = true,
+      symbols = {  error = '', warn = '', info = '', hint = '' },
+      diagnostics_color = {
+        error = { fg = colors.pink },
+        warn = { fg = colors.yellow },
+        info = { fg = colors.blue },
+      },
     }
+    --
+    -- ins_right { 'filetype' }
 
-    ins_right {
-      'branch',
-      icon = '',
-      color = { fg = colors.pink, gui = 'bold' },
-    }
+    -- ins_right {
+    --   'progress',
+    --   color = { fg = colors.fg, gui = 'bold' }
+    -- }
 
-    ins_right {
-      function()
-        return os.date("%H:%M")
-      end,
-      color = { fg = colors.blue, gui = 'bold' }
-    }
+
+    -- ins_right {
+    --   function()
+    --     return os.date("%H:%M")
+    --   end,
+    --   color = { fg = colors.blue, gui = 'bold' }
+    -- }
 
     ins_right {
       function()
