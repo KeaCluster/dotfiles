@@ -7,7 +7,7 @@
 
 
 -- -------------------------
--- Custom Kanagawa themed colors
+-- Implements Kanagawa
 -- Reformatted sections
 -- -------------------------
 
@@ -15,16 +15,9 @@
 return {
   "nvim-lualine/lualine.nvim",
   config = function()
-    local colors = {
-      bg = '#1f1f28',           -- sumiInk
-      fg = '#dcd7ba',           -- foam
-      blue = '#7fb4ca',         -- springBlue
-      darkblue = '#223249',     -- waveBlue
-      yellow = '#e0af68',       -- springYellow
-      pink = '#d27e99',         -- sakuraPink
-      fujiWhite = "#dcd7ba",    -- fujiWhite foreground
-      transparentbg = nil,
-    }
+    local kanagawaColors = require('kanagawa.colors').setup()
+    local palette_colors = kanagawaColors.palette
+    local transparentbg = nil
 
     local conditions = {
       buffer_not_empty = function()
@@ -40,8 +33,8 @@ return {
         component_separators = "",
         section_separators = "",
         theme = {
-          normal = { c = { fg = colors.fg, bg = colors.transparentbg } },
-          inactive = { c = { fg = colors.fg, bg = colors.transparentbg} },
+          normal = { c = { fg = palette_colors.sumiInk0, bg = transparentbg } },
+          inactive = { c = { fg = palette_colors.sumiInk0, bg = transparentbg} },
         },
       },
       sections = {
@@ -96,7 +89,7 @@ return {
       function()
         return '▊'
       end,
-      color = { fg = colors.yellow},
+      color = { fg = palette_colors.autumnYellow},
       padding = { left = 0, right = 1 },
     }
 
@@ -105,13 +98,13 @@ return {
       fmt = function(s) return mode_map[s] or s end,
       color = function()
         local mode_color = {
-          n = colors.pink,
-          i = colors.yellow,
-          v = colors.blue,
-          [''] = colors.blue,
-          V = colors.blue,
+          n = palette_colors.oldWhite,
+          i = palette_colors.autumnYellow,
+          v = palette_colors.springGreen,
+          [''] = palette_colors.springBlue,
+          V = palette_colors.autumnGreen,
         }
-        return { fg = mode_color[vim.fn.mode()] or colors.pink }
+        return { fg = mode_color[vim.fn.mode()] or palette_colors.sakuraPink }
       end,
       padding = { right = 1 }
     }
@@ -121,13 +114,13 @@ return {
     ins_left {
       'branch',
       icon = '',
-      color = { fg = colors.pink, gui = 'bold' },
+      color = { fg = palette_colors.sakuraPink, gui = 'bold' },
     }
 
     ins_left {
       'filename',
       cond = conditions.buffer_not_empty,
-      color = { fg = colors.fujiWhite, },
+      color = { fg = palette_colors.waveBlue2, },
     }
 
     -- right items
@@ -136,7 +129,7 @@ return {
       'fileformat',
       fmt = string.upper,
       icons_enabled = true,
-      color = { fg = colors.yellow, gui = 'bold' },
+      color = { fg = palette_colors.oldWhite, gui = 'bold' },
     }
 
     ins_right {
@@ -145,9 +138,9 @@ return {
       always_visible = true,
       symbols = {  error = '', warn = '', info = '', hint = '' },
       diagnostics_color = {
-        error = { fg = colors.pink },
-        warn = { fg = colors.yellow },
-        info = { fg = colors.blue },
+        error = { fg = palette_colors.sakuraPink},
+        warn = { fg = palette_colors.roninYellow},
+        info = { fg = palette_colors.springViolet2},
       },
     }
     --
@@ -170,7 +163,7 @@ return {
       function()
         return '▊'
       end,
-      color = { fg = colors.yellow},
+      color = { fg = palette_colors.autumnYellow},
       padding = { left = 1 },
     }
 
