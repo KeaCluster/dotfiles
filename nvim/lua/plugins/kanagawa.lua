@@ -1,8 +1,13 @@
 return {
   "rebelot/kanagawa.nvim",
-  require("kanagawa").setup({
-    terminalColors = false,
+  lazy = true,
+  opts = {
     transparent = true,
+    styles = {
+      sidebars = "transparent",
+      floats = "transparent",
+    },
+    terminalColors = false,
     colors = {
       theme = {
         all = {
@@ -26,9 +31,8 @@ return {
 
         -- Popular plugins that open floats will link to NormalFloat by default;
         -- set their background accordingly if you wish to keep them dark and borderless
-        LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
         MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
       }
     end,
-  }),
+  },
 }

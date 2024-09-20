@@ -15,8 +15,8 @@
 return {
   "nvim-lualine/lualine.nvim",
   config = function()
-    local kanagawaColors = require('kanagawa.colors').setup()
-    local palette_colors = kanagawaColors.palette
+    local kanagawa = require('kanagawa.colors').setup()
+    local palette_colors = kanagawa.palette
     local transparentbg = nil
 
     local conditions = {
@@ -46,12 +46,10 @@ return {
         lualine_z = {},
       },
       inactive_sections = {
-        lualine_a = {},
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = {},
       },
     }
 
@@ -76,11 +74,11 @@ return {
     }
 
     local function ins_left(component)
-      table.insert(config.sections.lualine_c, component)
+      table.insert(config.sections.lualine_a, component)
     end
 
     local function ins_right(component)
-      table.insert(config.sections.lualine_x, component)
+      table.insert(config.sections.lualine_z, component)
     end
 
     -- left items
@@ -89,24 +87,25 @@ return {
       function()
         return '▊'
       end,
-      color = { fg = palette_colors.autumnYellow},
+      color = { fg = palette_colors.oldWhite},
       padding = { left = 0, right = 1 },
     }
 
     ins_left {
       'mode',
       fmt = function(s) return mode_map[s] or s end,
+      gui='bold',
       color = function()
         local mode_color = {
           n = palette_colors.oldWhite,
-          i = palette_colors.autumnYellow,
+          i = palette_colors.fujiWhite,
           v = palette_colors.springGreen,
           [''] = palette_colors.springBlue,
           V = palette_colors.autumnGreen,
         }
-        return { fg = mode_color[vim.fn.mode()] or palette_colors.sakuraPink }
+        return { fg = mode_color[vim.fn.mode()] or palette_colors.sakuraPink,}
       end,
-      padding = { right = 1 }
+      -- padding = { right = 1 }
     }
 
     -- ins_left { 'location' }
@@ -114,13 +113,13 @@ return {
     ins_left {
       'branch',
       icon = '',
-      color = { fg = palette_colors.sakuraPink, gui = 'bold' },
+      color = { fg = palette_colors.sakuraPink, gui='bold'},
     }
 
     ins_left {
       'filename',
       cond = conditions.buffer_not_empty,
-      color = { fg = palette_colors.waveBlue2, },
+      color = { fg = palette_colors.waveBlue2, gui = 'bold' },
     }
 
     -- right items
@@ -136,7 +135,8 @@ return {
       'diagnostics',
       sources = { 'nvim_diagnostic' },
       always_visible = true,
-      symbols = {  error = '', warn = '', info = '', hint = '' },
+      sections = {'error', 'warn', 'info'},
+      symbols = {  error = '', warn = '', info = ''},
       diagnostics_color = {
         error = { fg = palette_colors.sakuraPink},
         warn = { fg = palette_colors.roninYellow},
@@ -163,7 +163,7 @@ return {
       function()
         return '▊'
       end,
-      color = { fg = palette_colors.autumnYellow},
+      color = { fg = palette_colors.oldWhite},
       padding = { left = 1 },
     }
 
