@@ -26,6 +26,11 @@ return {
       hide_in_width = function()
         return vim.fn.winwidth(0) > 80
       end,
+      check_git_workspace = function()
+        local filepath = vim.fn.expand('%:p:h')
+        local gitdir = vim.fn.finddir('.git', filepath .. ';')
+        return  gitdir and #gitdir > 0 and #gitdir < #filepath
+      end,
     }
 
     local config = {
@@ -33,23 +38,28 @@ return {
         component_separators = "",
         section_separators = "",
         theme = {
-          normal = { c = { fg = palette_colors.sumiInk0, bg = transparentbg } },
-          inactive = { c = { fg = palette_colors.sumiInk0, bg = transparentbg} },
+          normal = { c = { fg = palette_colors.sumiInk0 or "#ffffff", bg = transparentbg } },
+          inactive = { c = { fg = palette_colors.sumiInk0 or "#ffffff", bg = transparentbg} },
         },
       },
       sections = {
+        -- these are to remove the defaults
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
         lualine_y = {},
         lualine_z = {},
-      },
-      inactive_sections = {
-        lualine_b = {},
+        -- These will be filled later
         lualine_c = {},
         lualine_x = {},
+      },
+      inactive_sections = {
+        -- these are to remove the defaults
+        lualine_a = {},
+        lualine_b = {},
         lualine_y = {},
+        lualine_z = {},
+        lualine_c = {},
+        lualine_x = {},
       },
     }
 
@@ -74,11 +84,11 @@ return {
     }
 
     local function ins_left(component)
-      table.insert(config.sections.lualine_a, component)
+      table.insert(config.sections.lualine_c, component)
     end
 
     local function ins_right(component)
-      table.insert(config.sections.lualine_z, component)
+      table.insert(config.sections.lualine_x, component)
     end
 
     -- left items
@@ -112,6 +122,7 @@ return {
 
     ins_left {
       'branch',
+      cond = conditions.check_git_workspace,
       icon = '',
       color = { fg = palette_colors.sakuraPink, gui='bold'},
     }
