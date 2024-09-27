@@ -146,12 +146,13 @@ return {
       'diagnostics',
       sources = { 'nvim_diagnostic' },
       always_visible = true,
-      sections = {'error', 'warn', 'info'},
-      symbols = {  error = '', warn = '', info = ''},
+      sections = {'error', 'warn', 'hint'},
+      symbols = {  error = '', warn = '', info = '', hint='' },
       diagnostics_color = {
         error = { fg = palette_colors.sakuraPink},
         warn = { fg = palette_colors.roninYellow},
-        info = { fg = palette_colors.springViolet2},
+        info = { fg = palette_colors.waveBlue2},
+        hint= { fg = palette_colors.springViolet2},
       },
     }
     --
