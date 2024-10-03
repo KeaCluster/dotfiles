@@ -7,7 +7,7 @@ set.shiftwidth = 2
 set.expandtab = true
 set.smartindent = true
 
--- this does nothign on terminal vim lmao
+-- this does nothing on terminal vim
 set.linespace = 4
 
 -- comp menu
@@ -29,10 +29,11 @@ set.sidescrolloff = 8
 set.list = true
 set.showbreak = "↪ "
 set.fillchars = { eob = " ", vert = " " }
-set.listchars = { extends = "❯", precedes = "❮", nbsp = "±", trail = "⣿" }
+set.listchars = { extends = "❯", precedes = "❮", nbsp = "±", trail = "⣿", tab = "  " }
 
 -- dic
 set.spelllang = "en,es"
+-- set.spell = true
 
 -- Search utils
 set.hlsearch = false

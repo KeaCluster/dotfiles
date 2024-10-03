@@ -10,7 +10,7 @@ sudo pacman -Syu
 # REQUIRED_PKGS="zsh nodejs npm openssh-client curl base-devel gdb python3.11-venv pip luarocks fd ripgrep make cargo neofetch"
 # Arch
 
-REQUIRED_PKGS="zsh nodejs npm openssh curl base-devel gdb python python-pip luarocks lazygit fd ripgrep make cargo ruby zoxide tree docker neofetch man-db"
+REQUIRED_PKGS="zsh nodejs npm openssh curl base-devel gdb python python-pip luarocks lazygit fd ripgrep make cargo ruby zoxide tree docker neofetch man-db fzf"
 
 # Ubuntu install
 # sudo apt install -y $REQUIRED_PKGS
@@ -24,10 +24,10 @@ TARGET_DIR="$HOME"
 
 # Function to create a symbolic link with backup
 create_link() {
-	([ -f "$2" ] || [ -d "$2" ]) &&
-		mv "$2" "$2.backup" &&
-		echo "Existing file/directory $2 moved to $2.backup"
-	ln -s "$1" "$2"
+  ([ -f "$2" ] || [ -d "$2" ]) &&
+    mv "$2" "$2.backup" &&
+    echo "Existing file/directory $2 moved to $2.backup"
+  ln -s "$1" "$2"
 }
 
 # Create zsh link for starship
@@ -38,7 +38,7 @@ create_link "$DOTFILES_DIR/bash/pure-preset.toml" "$TARGET_DIR/.config/starship.
 
 # install starship and theme
 curl -sS https://starship.rs/install.sh | sh &&
-	starship preset pure-preset -o ~/.config/starship.toml
+  starship preset pure-preset -o ~/.config/starship.toml
 
 # Create symbolic links
 create_link "$DOTFILES_DIR/bash/.profile" "$TARGET_DIR/.profile"
