@@ -1,19 +1,11 @@
 #!/bin/bash
 
-# Uncomment for Debian/Ubuntu
-# sudo apt update && sudo apt upgrade -y
-
 sudo pacman -Syu
 
 # Installs essential packages
-# Debian
-# REQUIRED_PKGS="zsh nodejs npm openssh-client curl base-devel gdb python3.11-venv pip luarocks fd ripgrep make cargo neofetch"
 # Arch
 
-REQUIRED_PKGS="zsh nodejs npm openssh curl base-devel gdb python python-pip luarocks lazygit fd ripgrep make cargo ruby zoxide tree docker neofetch man-db fzf"
-
-# Ubuntu install
-# sudo apt install -y $REQUIRED_PKGS
+REQUIRED_PKGS="zsh openssh curl base-devel gdb python python-pip luarocks lazygit fd ripgrep make cargo ruby zoxide tree docker man-db fzf neovim"
 
 # Arch install
 sudo pacman -S --needed $REQUIRED_PKGS
@@ -22,12 +14,18 @@ sudo pacman -S --needed $REQUIRED_PKGS
 DOTFILES_DIR="$HOME/.dotfiles"
 TARGET_DIR="$HOME"
 
+# Create .config dir
+echo "Creating .config dir"
+CONFIG_DIR="$HOME/.config"
+mkdir -p "$CONFIG_DIR"
+echo "Created .config directory succesfully..."
+
 # Function to create a symbolic link with backup
 create_link() {
   ([ -f "$2" ] || [ -d "$2" ]) &&
     mv "$2" "$2.backup" &&
     echo "Existing file/directory $2 moved to $2.backup"
-  ln -s "$1" "$2"
+  ln -sfn "$1" "$2"
 }
 
 # Create zsh link for starship
