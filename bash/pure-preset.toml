@@ -1,4 +1,5 @@
 format = """
+$username\
 $hostname\
 $directory\
 $git_branch\
@@ -10,36 +11,36 @@ $python\
 $character"""
 
 [directory]
-style = "fg:#7fb4ca" # springBlue
+style = "blue"
 
 [character]
-success_symbol = "[󰘧](fg:#e0af68)" # springYellow
-error_symbol = "[󰘧](fg:#ff5d62)"   # sakuraPink
-vimcmd_symbol = "[󰘧](fg:#dcd7ba)"  # foam
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
 
 [git_branch]
 format = "[$branch]($style)"
-style = "fg:#d27e99"
+style = "bright-black"
 
 [git_status]
-format = "[[( $conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
-style = "fg:#7fb4ca"
-conflicted = "[](fg:#ff5d62)"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "cyan"
+conflicted = "​"
 untracked = "​"
 modified = "​"
 staged = "​"
 renamed = "​"
-deleted = "fg:#ff5d62"
+deleted = "​"
 stashed = "≡"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "fg:#1f1f28"
+style = "bright-black"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "fg:#e0af68"
+style = "yellow"
 
 [python]
 format = "[$virtualenv]($style) "
-style = "fg:#dcd7ba"
+style = "bright-black"
