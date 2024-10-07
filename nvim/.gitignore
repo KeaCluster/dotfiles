@@ -6,3 +6,9 @@ debug
 foo.*
 *.log
 data
+--
+test.sh
+spell/
+.luarc.json
+
+
