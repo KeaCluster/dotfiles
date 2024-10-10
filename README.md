@@ -51,7 +51,9 @@ Then `cd` into `scripts` or do it from any directory
 cd ~/.dotfiles/scripts/ && sh init.sh
 ```
 
-or just run the files.
+or just run the files
+> [!NOTE]
+> Don't run this with sudo or `$HOME` will point to `/root`
 
 ```sh
 sh ~/.dotfiles/scripts/init.sh
