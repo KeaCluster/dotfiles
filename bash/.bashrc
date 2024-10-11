@@ -106,5 +106,6 @@ if ! shopt -oq posix; then
 fi
 
 # deno
-. "/home/salem/.deno/env"
+# Uncomment when deno is installed
+# . "/home/salem/.deno/env"
 

@@ -1,5 +1,3 @@
-eval "$(starship init zsh)"
-
 source $HOME/.bash_aliases
 
 eval "$(zoxide init zsh)"
@@ -14,9 +12,13 @@ export LC_CTYPE=en_US.UTF-8
 export EDITOR=nvim
 
 # Deno
-. "/home/salem/.deno/env"
+# Uncomment when deno is installed
+# . "/home/salem/.deno/env"
 
 # Deno completions
 fpath=(~/.dotfiles/zsh $fpath)
 autoload -Uz compinit
 compinit -u
+
+# Starship
+eval "$(starship init zsh)"
