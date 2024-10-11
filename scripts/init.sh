@@ -5,7 +5,7 @@ sudo pacman -Syu
 # Installs essential packages
 # Arch
 
-REQUIRED_PKGS="zsh openssh curl base-devel gdb python python-pip luarocks lazygit fd ripgrep make cargo ruby zoxide tree docker man-db fzf neovim"
+REQUIRED_PKGS="zsh openssh curl base-devel gdb python python-pip luarocks lazygit fd ripgrep make cargo ruby zoxide tree docker man-db fzf neovim starship"
 
 # Arch install
 sudo pacman -S --needed $REQUIRED_PKGS
@@ -17,8 +17,8 @@ TARGET_DIR="$HOME"
 # Create .config dir
 echo "Creating .config dir"
 CONFIG_DIR="$HOME/.config"
-mkdir -p "$CONFIG_DIR"
-echo "Created .config directory succesfully..."
+mkdir -p "$CONFIG_DIR" &&
+  echo "Created .config directory succesfully..."
 
 # Function to create a symbolic link with backup
 create_link() {
@@ -30,6 +30,9 @@ create_link() {
 
 # Create zsh link for starship
 create_link "$DOTFILES_DIR/zsh/.zshrc" "$TARGET_DIR/.zshrc"
+
+# Make zsh default
+chsh -s /bin/zsh
 
 # This will apply current custom pure starship
 create_link "$DOTFILES_DIR/bash/pure-preset.toml" "$TARGET_DIR/.config/starship.toml"
