@@ -30,6 +30,7 @@ set.termguicolors = false
 set.colorcolumn = '80'
 set.showtabline = 0
 vim.g.have_nerd_font = true
+vim.cmd 'hi! LineNr guibg=none ctermbg=none'
 
 -- Sync clipboard between OS and Neovim.
 vim.schedule(function()
