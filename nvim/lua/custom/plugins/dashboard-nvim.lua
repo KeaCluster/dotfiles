@@ -25,6 +25,8 @@ return {
 
     logo = string.rep('\n', 3) .. logo .. '\n\n'
 
+    local telescope = require 'telescope.builtin'
+
     require('dashboard').setup {
       theme = 'hyper',
       config = {
@@ -36,25 +38,33 @@ return {
             icon_hl = '@variable',
             desc = 'Files',
             group = 'Label',
-            action = 'Telescope find_files',
+            action = function()
+              telescope.find_files()
+            end,
             key = 'f',
           },
           {
             desc = '󰊢 Repos',
             group = 'Find',
-            action = 'Telescope git_files',
+            action = function()
+              telescope.git_files()
+            end,
             key = 'g',
           },
           {
             desc = '󰅩 Apps',
             group = 'Find',
-            action = 'Telescope find_files search_dirs=~/code',
+            action = function()
+              telescope.find_files { search_dirs = { '~/code' } }
+            end,
             key = 'a',
           },
           {
             desc = '󰌽 ~/.dotfiles',
             group = 'Number',
-            action = 'Telescope find_files search_dirs=~/.dotfiles',
+            action = function()
+              telescope.find_files { cwd = '~/.dotfiles', hidden = true }
+            end,
             key = 'd',
           },
         },
