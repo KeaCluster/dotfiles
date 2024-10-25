@@ -88,17 +88,8 @@ sh nvim_setup.sh
 This will install neovim and set it as default editor.
 
 > [!IMPORTANT]
-> Migration from lazyvim is currently underway.
-> To continue using Lazyvim check the following [commit](https://github.com/KeaCluster/dotfiles/tree/5bd2730e5f91d966f1fd1933e7c73fba8275830d) and continue bellow
-
-If already installed and would like to use my personal configuration,
-you can run the following individually::
-
-```sh
-sh lazyvim_setup.sh
-```
-
-If neither are installed, run them both.
+> I've recently migrated from (lazyvim)[http://www.lazyvim.org/] to (kickstart.nvim)[https://github.com/nvim-lua/kickstart.nvim]
+> To continue using Lazyvim check the [ lazyvim ](https://github.com/KeaCluster/dotfiles/tree/lazyvim) branch of this same repo.
 
 ### Starship
 
