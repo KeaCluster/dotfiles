@@ -9,15 +9,24 @@ TARGET_DIR="$HOME"
 
 # Function to create a symbolic link with backup
 create_link() {
-  if [ -f "$2" ] || [ -d "$2" ]; then
-    mv "$2" "$2.backup"
-    echo "Existing file/dir $2 moved to $2.backup"
+  if [ ! -e "$1" ]; then
+    echo "Source $1" does not exist. Skipping.
+    return 1
+  fi 
+
+  if [ -e "$2" ] || [ -L "$2" ]; then
+    if mv "$2" "$2.backup"; then
+      echo "Existing file/dir $2 moved to $2.backup"
+    else
+      echo "Failed to backup $2. Check permissions."
+      return 1
+    fi
   fi
 
   ln -sfn "$1" "$2"
 
   if [ -L "$2" ]; then
-    echo "Symbolic link $2 created successfully,\n pointing to: $1"
+    echo -e "Symbolic link $2 created successfully,\n pointing to: $1"
   else
     echo "Failed to create symbolic link $2"
   fi
