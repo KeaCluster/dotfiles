@@ -30,6 +30,8 @@ set.termguicolors = false
 set.colorcolumn = '80'
 set.showtabline = 0
 vim.g.have_nerd_font = true
+-- lualine is full width
+set.laststatus = 3
 
 -- Sync clipboard between OS and Neovim.
 vim.schedule(function()
