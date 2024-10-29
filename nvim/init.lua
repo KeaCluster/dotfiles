@@ -86,6 +86,11 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- move lines
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==') -- Move liene up <n>
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==') --- Move line down  <n>
+vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv") -- Move line(s) down <v>
+vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv") -- Move line(s) up <v>
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -367,7 +372,7 @@ require('lazy').setup({
       --   for type, icon in pairs(signs) do
       --     diagnostic_signs[vim.diagnostic.severity[type]] = icon
       --   end
-      --   vim.diagnostic.config { signs = { text = diagnostic_signs } }
+      vim.diagnostic.config { signs = false }
       -- end
 
       -- LSP servers and clients are able to communicate to each other what features they support.
@@ -410,7 +415,7 @@ require('lazy').setup({
                 callSnippet = 'Replace',
               },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
+              diagnostics = { disable = { 'missing-fields' } },
             },
           },
         },
