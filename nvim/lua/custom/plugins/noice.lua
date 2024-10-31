@@ -16,6 +16,6 @@ return {
     },
   },
   dependencies = {
-    'MunifTanjin/nui.nvim',
+    'MunifTanjim/nui.nvim',
   },
 }
