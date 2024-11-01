@@ -130,9 +130,13 @@ return {
     ins_left {
       'filename',
       cond = conditions.buffer_not_empty,
-      color = { fg = palette_colors.waveBlue2, gui = 'bold' },
+      color = { fg = palette_colors.oldWhite, gui="bold"  },
     }
 
+    ins_left {
+      'buffers',
+      color = { fg = palette_colors.fujiWhite, gui="bold"  },
+    }
     -- right items
 
     ins_right {

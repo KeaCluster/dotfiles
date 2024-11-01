@@ -1,4 +1,5 @@
 local set = vim.opt
+local map = vim.keymap.set
 --
 -- Set <space> as the leader key
 vim.g.mapleader = ' '
@@ -70,34 +71,52 @@ set.cursorline = true
 
 -- [[ Basic Keymaps ]]
 -- Clear highlights on search when pressing <Esc> in normal mode
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+map('n', '<Esc>', '<cmd>nohlsearch<CR>')
+-- Save
+map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
+-- Indenting
+map('v', '<', '<gv')
+map('v', '>', '>gv')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Keybinds for split navigation.
 --  Use CTRL+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
--- move lines
-vim.keymap.set('n', '<A-j>', ':m .+1<CR>==') -- Move liene up <n>
-vim.keymap.set('n', '<A-k>', ':m .-2<CR>==') --- Move line down  <n>
-vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv") -- Move line(s) down <v>
-vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv") -- Move line(s) up <v>
+map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- windows
+map('n', '<leader>-', '<C-W>s', { desc = 'Split Window Below', remap = true })
+map('n', '<leader>|', '<C-W>v', { desc = 'Split Window Right', remap = true })
+map('n', '<leader>wd', '<C-W>c', { desc = 'Delete Window', remap = true })
+
+-- Move Lines
+map('n', '<A-j>', "<cmd>execute 'move .+' . v:count1<cr>==", { desc = 'Move Down' })
+map('n', '<A-k>', "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = 'Move Up' })
+map('i', '<A-j>', '<esc><cmd>m .+1<cr>==gi', { desc = 'Move Down' })
+map('i', '<A-k>', '<esc><cmd>m .-2<cr>==gi', { desc = 'Move Up' })
+map('v', '<A-j>', ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = 'Move Down' })
+map('v', '<A-k>', ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = 'Move Up' })
+
+-- Keybids for buffer navigation
+-- Move between
+map('n', '[b', ':bprevious<CR>', { noremap = true, silent = true, desc = 'Previous buffer' })
+map('n', ']b', ':bnext<CR>', { noremap = true, silent = true, desc = 'Next buffer' })
+-- delete
+map('n', '<leader>bd', ':bdelete<CR>', { noremap = true, silent = true, desc = 'Delete current buffer' })
+--
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -212,19 +231,19 @@ require('lazy').setup({
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-      vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-      vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-      vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-      vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      map('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
+      map('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
+      map('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      map('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
+      map('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+      map('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+      map('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+      map('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
+      map('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+      map('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
-      vim.keymap.set('n', '<leader>/', function()
+      map('n', '<leader>/', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,
@@ -234,7 +253,7 @@ require('lazy').setup({
 
       -- It's also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
-      vim.keymap.set('n', '<leader>s/', function()
+      map('n', '<leader>s/', function()
         builtin.live_grep {
           grep_open_files = true,
           prompt_title = 'Live Grep in Open Files',
@@ -242,7 +261,7 @@ require('lazy').setup({
       end, { desc = '[S]earch [/] in Open Files' })
 
       -- Shortcut for searching your Neovim configuration files
-      vim.keymap.set('n', '<leader>sn', function()
+      map('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
     end,
@@ -284,7 +303,7 @@ require('lazy').setup({
         callback = function(event)
           local map = function(keys, func, desc, mode)
             mode = mode or 'n'
-            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+            map(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
           -- Jump to the definition of the word under your cursor.
@@ -363,17 +382,7 @@ require('lazy').setup({
           end
         end,
       })
-
-      -- Change diagnostic symbols in the sign column (gutter)
-      -- if vim.g.have_nerd_font then
-      --   local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
-      --   local diagnostic_signs = {}
-      --   for type, icon in pairs(signs) do
-      --     diagnostic_signs[vim.diagnostic.severity[type]] = icon
-      --   end
       vim.diagnostic.config { signs = false }
-      -- end
-
       -- LSP servers and clients are able to communicate to each other what features they support.
       --  By default, Neovim doesn't support everything that is in the LSP specification.
       --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
@@ -397,13 +406,7 @@ require('lazy').setup({
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
-        -- Some languages (like typescript) have entire language plugins that can be useful:
-        --    https://github.com/pmizio/typescript-tools.nvim
-        --
-        -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
-        --
-
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -485,11 +488,8 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
-        -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettier' },
+        typescript = { 'prettier' },
       },
     },
   },
@@ -511,15 +511,12 @@ require('lazy').setup({
           return 'make install_jsregexp'
         end)(),
         dependencies = {
-          -- `friendly-snippets` contains a variety of premade snippets.
-          --    See the README about individual language/framework/plugin snippets:
-          --    https://github.com/rafamadriz/friendly-snippets
-          -- {
-          --   'rafamadriz/friendly-snippets',
-          --   config = function()
-          --     require('luasnip.loaders.from_vscode').lazy_load()
-          --   end,
-          -- },
+          {
+            'rafamadriz/friendly-snippets',
+            config = function()
+              require('luasnip.loaders.from_vscode').lazy_load()
+            end,
+          },
         },
       },
       'saadparwaiz1/cmp_luasnip',
