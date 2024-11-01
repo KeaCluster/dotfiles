@@ -22,3 +22,7 @@ compinit -u
 
 # Starship
 eval "$(starship init zsh)"
+
+# deno
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"

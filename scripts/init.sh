@@ -41,6 +41,9 @@ create_link "$DOTFILES_DIR/bash/pure-preset.toml" "$TARGET_DIR/.config/starship.
 curl -sS https://starship.rs/install.sh | sh &&
   starship preset pure-preset -o ~/.config/starship.toml
 
+# install deno
+curl -fsSL https://deno.land/install.sh | sh
+
 # Create symbolic links
 create_link "$DOTFILES_DIR/bash/.profile" "$TARGET_DIR/.profile"
 create_link "$DOTFILES_DIR/bash/.bashrc" "$TARGET_DIR/.bashrc"
