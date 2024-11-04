@@ -1,24 +1,29 @@
 #!/bin/bash
+set -euo pipefail
 
 sudo pacman -Syu
 
 # Installs essential packages
 # Arch
 
-REQUIRED_PKGS="zsh openssh curl base-devel gdb python python-pip luarocks lazygit fd ripgrep make cargo ruby zoxide tree docker man-db fzf neovim starship"
+REQUIRED_PKGS=(
+  zsh openssh curl base-devel gdb 
+  python python-pip luarocks lazygit 
+  fd ripgrep make cargo ruby zoxide 
+  tree docker man-db fzf neovim starship
+)
 
 # Arch install
-sudo pacman -S --needed $REQUIRED_PKGS
+sudo pacman -S --needed --noconfirm "${REQUIRED_PKGS[@]}"
 
 # Define Source and Target Path for symbolic links
 DOTFILES_DIR="$HOME/.dotfiles"
 TARGET_DIR="$HOME"
+CONFIG_DIR="$HOME/.config"
 
 # Create .config dir
 echo "Creating .config dir"
-CONFIG_DIR="$HOME/.config"
-mkdir -p "$CONFIG_DIR" &&
-  echo "Created .config directory succesfully..."
+mkdir -p "$CONFIG_DIR"
 
 # Function to create a symbolic link with backup
 create_link() {
@@ -32,17 +37,23 @@ create_link() {
 create_link "$DOTFILES_DIR/zsh/.zshrc" "$TARGET_DIR/.zshrc"
 
 # Make zsh default
+echo "Changing default shell to zsh (requires password)..."
 chsh -s /bin/zsh
 
 # This will apply current custom pure starship
 create_link "$DOTFILES_DIR/bash/pure-preset.toml" "$TARGET_DIR/.config/starship.toml"
 
-# install starship and theme
-curl -sS https://starship.rs/install.sh | sh &&
-  starship preset pure-preset -o ~/.config/starship.toml
+# install starship
+if ! command -v starship &>/dev/null; then
+  echo "Installing starship..."
+  curl -sS https:/starship.rs/install.sh | sh -s -- --yes
+fi
 
 # install deno
-curl -fsSL https://deno.land/install.sh | sh
+if ! command -v deno &>/dev/null; then
+  echo "Installing deno..."
+  curl -fsSL https://deno.land/install.sh | sh
+fi
 
 # Create symbolic links
 create_link "$DOTFILES_DIR/bash/.profile" "$TARGET_DIR/.profile"
@@ -51,11 +62,17 @@ create_link "$DOTFILES_DIR/bash/.bash_aliases" "$TARGET_DIR/.bash_aliases"
 create_link "$DOTFILES_DIR/git/.gitconfig" "$TARGET_DIR/.gitconfig"
 
 # Install Homebrew if not present
-command -v brew &>/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if ! command -v brew &>/dev/null; then
+  echo "Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
 # Install minimal theme for Zsh (optional)
 # [ -f ./minimal_theme_setup.sh ] && sh ./minimal_theme_setup.sh
 
 # Messages
+echo "=========================================="
 echo "Installation and setup complete"
-echo "Restart or logout and log back to apply and check/verify changes"
+echo "=========================================="
+echo "Please logout and log back in to apply changes"
+echo "Or run: exec zsh"

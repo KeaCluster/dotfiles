@@ -1,36 +1,36 @@
 #!/bin/bash
+set -euo pipefail
 
 # Script to install Neovim from AppImage
 
 # Download URL
 NVIM_APPIMAGE_URL="https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
 
-# Download Neovim AppImage
-echo "Downloading Neovim AppImage..." &&
-  curl -LO $NVIM_APPIMAGE_URLi && chmod u+x nvim.appimage &&
-  echo "Neovim AppImage downloaded and is executable." ||
-  {
-    echo "Failed to download Nvim AppImage."
-    exit 1
-  }
+NVIM_APPIMAGE_URL="https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
 
-# Extract and install Neovim
-echo "Extracting and installing Neovim..." &&
-  ./nvim.appimage --appimage-extract &&
-  sudo mv squashfs-root /opt/nvim &&
-  sudo ln -s /opt/nvim/AppRun /usr/local/bin/nvim &&
-  echo "Neovim installed successfully." ||
-  {
-    echo "Failed to extract and install Neovim."
-    exit 1
-  }
+echo "Downloading Neovim AppImage..."
+curl -LO "$NVIM_APPIMAGE_URL"
+
+# Make executable
+chmod u+x nvim.appimage
+
+echo "Extracting Neovim..."
+./nvim.appimage --appimage-extract
+
+echo "Installing Neovim to /opt/nvim..."
+sudo mv squashfs-root /opt/nvim
+
+# Create symlink
+sudo ln -sfn /opt/nvim/AppRun /usr/bin/nvim  # Better: use /usr/bin instead of /usr/local/bin
 
 # Cleanup
-rm nvim.appimage
-echo "Cleanup complete."
+rm -f nvim.appimage
 
-# Make nvim default editor
-[-z "$EDITOR"] && EDITOR=nvim
-echo $EDITOR
+echo "Neovim installed successfully!"
 
-echo "Neovim setup complete."
+# Set as default editor (add to shell profile instead)
+echo "To make nvim your default editor, add to your .bashrc or .zshrc:"
+echo 'export EDITOR=nvim'
+echo 'export VISUAL=nvim'
+
+nvim --version

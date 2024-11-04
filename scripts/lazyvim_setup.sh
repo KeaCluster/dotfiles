@@ -6,7 +6,7 @@ NVIM_CONFIG_DIR="$HOME/.config/nvim"
 
 # Backup existing Neovim config if it exists
 echo "Checking prev nvim config..." &&
-	[-d "$NVIM_CONFIG_DIR"] &&
+	[ -d "$NVIM_CONFIG_DIR" ] &&
 	{
 		echo "Backing up existing Neovim config..."
 		mv "$NVIM_CONFIG_DIR" "${NVIM_CONFIG_DIR}_backup_$(date +%Y%m%d%H%M%S)"
