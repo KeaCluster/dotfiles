@@ -46,7 +46,7 @@ create_link "$DOTFILES_DIR/bash/pure-preset.toml" "$TARGET_DIR/.config/starship.
 # install starship
 if ! command -v starship &>/dev/null; then
   echo "Installing starship..."
-  curl -sS https:/starship.rs/install.sh | sh -s -- --yes
+  curl -sS https://starship.rs/install.sh | sh -s -- --yes
 fi
 
 # install deno

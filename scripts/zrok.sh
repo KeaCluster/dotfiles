@@ -1,4 +1,9 @@
-cd $(mktemp -d);
+#!/bin/bash
+set -euo pipefail
+
+TMPDIR=$(mktemp -d)
+trap 'rm -rf "$TMPDIR"' EXIT
+cd "$TMPDIR"
 
 ZROK_VERSION=$(
   curl -sSf https://api.github.com/repos/openziti/zrok/releases/latest \

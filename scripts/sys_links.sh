@@ -10,7 +10,7 @@ TARGET_DIR="$HOME"
 # Function to create a symbolic link with backup
 create_link() {
   if [ ! -e "$1" ]; then
-    echo "Source $1" does not exist. Skipping.
+    echo "Source $1 does not exist. Skipping."
     return 1
   fi 
 

@@ -6,8 +6,6 @@ set -euo pipefail
 # Download URL
 NVIM_APPIMAGE_URL="https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
 
-NVIM_APPIMAGE_URL="https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
-
 echo "Downloading Neovim AppImage..."
 curl -LO "$NVIM_APPIMAGE_URL"
 
