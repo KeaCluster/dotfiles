@@ -17,7 +17,7 @@ return {
   config = function()
     local kanagawa = require('kanagawa.colors')
     local palette_colors = kanagawa.setup().palette
-    local transparentbg = nil 
+    local transparentbg = nil
 
     local conditions = {
       buffer_not_empty = function()
@@ -135,7 +135,7 @@ return {
 
     ins_left {
       'buffers',
-      color = { fg = palette_colors.fujiWhite, gui="bold"  },
+      color = { fg = palette_colors.sumiInk4, gui="italic"},
     }
     -- right items
 

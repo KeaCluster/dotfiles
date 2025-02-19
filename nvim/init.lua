@@ -280,6 +280,13 @@ require('lazy').setup({
       },
     },
   },
+  {
+    'windwp/nvim-ts-autotag',
+    event = 'InsertEnter',
+    config = function()
+      require('nvim-ts-autotag').setup {}
+    end,
+  },
   { 'Bilal2453/luvit-meta', lazy = true },
   {
     -- Main LSP Configuration
