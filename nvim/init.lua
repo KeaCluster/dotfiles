@@ -97,6 +97,10 @@ map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 map('n', '<leader>-', '<C-W>s', { desc = 'Split Window Below', remap = true })
 map('n', '<leader>|', '<C-W>v', { desc = 'Split Window Right', remap = true })
 map('n', '<leader>wd', '<C-W>c', { desc = 'Delete Window', remap = true })
+map('n', '=', [[<cmd>vertical resize +5<cr>]]) -- make the window biger vertically
+map('n', '-', [[<cmd>vertical resize -5<cr>]]) -- make the window smaller vertically
+map('n', '+', [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
+map('n', '_', [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
 
 -- Move Lines
 map('n', '<A-j>', "<cmd>execute 'move .+' . v:count1<cr>==", { desc = 'Move Down' })
